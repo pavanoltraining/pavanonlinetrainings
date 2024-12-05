@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Tab Menu</title>
+  <style>
+    /* CSS */
+    .tab-menu {
+      display: flex;
+      margin-bottom: 20px;
+      background-color: #F2F1F8;
+    }
+    .tab-menu .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .tab-menu .active {
+      border-bottom: 1px solid #ff5722;
+      font-weight: bold;
+      color: #ff5722;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .centered {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+ <!-- Header Section -->
+            <div class="header">
+               <div>
+                  <h5 class="text-primary mb-3"> Schedule: 20-Dec | Time : 8.00 PM (IST)</h5>
+                  <h5>(6.30 AM PST |8.30 AM CST|9.30 AM EST)</h5>
+                  <p>Duration: 5-6 Weeks (Weekly 4 sessions Monday-Thursday)</p>
+                  <p>Session Duration: 1.5 Hours+ 30 mins for Q & A</p>
+                  <p>Course Fees:₹14,999 /$250</p>
+                  <p>Trainer: Mr. Pavan</p>
+                  <h5>Payment Methods:</h5>
+				  <br>
+                 <form>
+					<script async="" data-payment_button_id="pl_NJeyONmZrlikfl" src="https://checkout.razorpay.com/v1/payment-button.js"> </script>
+				 </form>
+                  <br>
+                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					  <input name="cmd" type="hidden" value="_s-xclick" />
+					  <input name="hosted_button_id" type="hidden" value="Q92KJRXSECWFG" />
+					  <input name="currency_code" type="hidden" value="USD" />
+					  <input alt="Buy Now" border="0" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" title="PayPal - The safer, easier way to pay online!" type="image" />
+				</form>
+               </div>
+               <div>
+                  <figure class="mu-latest-course-img">
+                     <img class="img-fluid" src="img/course-4.jpg" alt="img">
+                  </figure>
+               </div>
+               <div >
+               </div>
+            </div>
+            <!--header end -->
+
+
+
+
+
+  <!-- Tab Menu -->
+  <div class="tab-menu">
+    <div class="tab active" data-tab="overview">About The Course</div>
+    <div class="tab" data-tab="curriculum">Curriculum</div>
+    <div class="tab" data-tab="instructor">Instructor</div>
+  </div>
+  <!-- Tab Content -->
+  <div class="content">
+    <div id="overview" class="tab-content active">
+      <h3>API Testing Course Overview</h3>
+      <p>Our API Testing course using Postman & RestAssured is designed to provide you with a strong foundation in testing RESTful APIs. This hands-on course covers everything from API basics to advanced automation techniques, ensuring you gain practical skills to effectively validate and automate API functionality.</p>
+      <h4>Training Benefits</h4>
+      <ul>
+        <li>Access to Recorded Videos</li>
+        <li>Frequently Asked Questions (FAQs)</li>
+        <li>Thoughtful Assignments</li>
+        <li>Resume Preparation Assistance</li>
+        <li>Career Guidance</li>
+      </ul>
+      <p class="important-note">Note: We do not offer any placements or job support. This program is designed to enhance job readiness by providing comprehensive training in essential concepts crucial for job interviews and projects.</p>
+      <h4>Please read all the instructions before making the payment:</h4>
+      <ul>
+        <li>Do the payment only after announcing the date.</li>
+        <li>Please note that the course fee is non-refundable.</li>
+        <li>Payment must be made in full, as there are no EMI/Installment options available.</li>
+        <li>Upon successful payment, you will receive an email with joining instructions one day before the class begins.</li>
+        <li>Attending sessions twice in multiple batches is not permitted.</li>
+      </ul>
+      <h4>After making the payment</h4>
+      <ul>
+        <li>Send a screenshot of the payment confirmation to <a href="mailto:pavanoltraining@gmail.com">pavanoltraining@gmail.com</a>.</li>
+        <li>Ensure to send the screenshot promptly after completing the payment.</li>
+        <li>Mention the name of the participant in the email.</li>
+      </ul>
+      <h4>Demo Session</h4>
+      <div class="centered">
+        <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/vCJVFnepECc?si=cIaFTxj0AWITN48c" title="YouTube video player" width="560"></iframe>
+      </div>
+    </div>
+    <div id="curriculum" class="tab-content">
+      <h3>Course Curriculum</h3>
+      <h4>Module-1: Introduction to API Testing</h4>
+      <ul>
+        <li>Client-Server Architecture</li>
+        <li>Understanding the basic architecture</li>
+        <li>Roles of client and server</li>
+        <li>API Basics</li>
+        <li>What is an API?</li>
+        <li>Why API Testing is needed?</li>
+        <li>Types of APIs</li>
+        <li>SOAP vs. REST</li>
+        <li>Understanding Web Services</li>
+        <li>API vs. Web Service</li>
+        <li>REST API Fundamentals</li>
+        <li>RESTful architecture</li>
+        <li>REST API Methods (GET, POST, PUT, DELETE)</li>
+        <li>HTTP vs. HTTPS</li>
+      </ul>
+    </div>
+    <div id="instructor" class="tab-content">
+      <h3>About the Instructor</h3>
+      <div class="container py-5">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="img/about.jpg" alt="">
+            <br>
+            <h5 class="text-primary mb-3" align="center">Mr. Pavan</h5>
+            <p align="center">Tech Educator & Trainer</p>
+          </div>
+          <div class="col-lg-7">
+            <p>As a passionate Tech Educator and Trainer, I bring over 18 years of IT industry experience, including 15+ years as an Instructor and Corporate Trainer...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- JavaScript -->
+  <script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabName = tab.getAttribute('data-tab');
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        document.getElementById(tabName).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

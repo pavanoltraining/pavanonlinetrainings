@@ -1,0 +1,91 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.price-section {
+	text-align: right;
+}
+
+.payment-buttons button {
+	margin: 5px 0;
+	padding: 10px 20px;
+	background-color: #FF5733;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+.payment-buttons button:hover {
+	background-color: #e64a19;
+}
+
+.pricing {
+	color: #FF5733;
+	font-weight: bold;
+}
+
+.original-price {
+	text-decoration: line-through;
+	color: #aaa;
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+.tab-menu {
+	display: flex;
+	margin-bottom: 20px;
+	background-color: #F2F1F8;
+}
+
+.tab-menu .tab {
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+.tab-menu .active {
+	border-bottom: 1px solid #ff5722;
+	font-weight: bold;
+	color: #ff5722;
+}
+
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+.learners-section {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
+.learner-card {
+	width: 30%;
+	background: #f9f9f9;
+	text-align: center;
+}
+
+.learner-card img {
+	margin-bottom: 10px;
+}
+
+.learner-card h3 {
+	margin-bottom: 10px;
+	color: #333;
+}
+
+
+.course-section {
+	margin: 20px 0;
+	padding: 10px;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
