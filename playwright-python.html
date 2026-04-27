@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="🎭 AI Powered Playwright with Python Online Training. Master end-to-end web & API automation testing with AI. 12-week comprehensive program with live sessions, real projects, and expert guidance from Mr. Madan.">
+    <meta name="keywords" content="Playwright, Python, Browser Automation, Test Automation, E2E Testing, API Testing, QA Training, SDET, AI-Powered Testing">
+    <title>AI Powered Playwright Training (Python) | End-To-End Web & API Automation | Pavan Online Trainings</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ==================== CSS Variables ==================== */
+        :root {
+            --primary: #2575fc;
+            --primary-dark: #6a11cb;
+            --primary-light: #3b82f6;
+            --secondary: #0b1220;
+            --accent: #6a11cb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --background: #f6f8fb;
+            --surface: #ffffff;
+            --surface-dark: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --radius-sm: 6px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ==================== Reset & Base ==================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            font-family: Open Sans;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        /* ==================== Utility Classes ==================== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-label i {
+            font-size: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ==================== Buttons ==================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        .btn-lg {
+            padding: 18px 36px;
+            font-size: 16px;
+        }
+
+        /* ==================== Navigation ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: inherit;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.2;
+        }
+
+        .logo-tagline {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 10px 16px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.08);
+        }
+
+        /* ==================== Hero Section ==================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-badge i {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-title {
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--secondary);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.1s backwards;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 540px;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 48px;
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            animation: fadeInUp 0.6s ease-out 0.4s backwards;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 0.8s ease-out 0.3s backwards;
+        }
+
+        .hero-image {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .code-window {
+            background: var(--secondary);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .code-dot.red { background: #ef4444; }
+        .code-dot.yellow { background: #f59e0b; }
+        .code-dot.green { background: #10b981; }
+
+        .code-body {
+            padding: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #e2e8f0;
+        }
+
+        .code-line {
+            display: block;
+        }
+
+        .code-keyword { color: #c084fc; }
+        .code-function { color: #60a5fa; }
+        .code-string { color: #34d399; }
+        .code-comment { color: #64748b; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ==================== Features Section ==================== */
+        .features {
+            background: var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .features .section-label {
+            color: var(--accent);
+        }
+
+        .features .section-title {
+            color: white;
+        }
+
+        .features .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-8px);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        /* ==================== Curriculum Section ==================== */
+        .curriculum {
+            background: var(--surface);
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .module-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .module-header {
+            padding: 28px 24px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .module-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+        }
+
+        .module-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.4;
+        }
+
+        .module-body {
+            padding: 0 24px 24px;
+        }
+
+        .module-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .module-topics {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .module-topics li {
+            margin-left: 20px;
+            margin-bottom: 6px;
+        }
+
+        .module-topics li:before {
+            content: "✓";
+            margin-right: 8px;
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* ==================== Pricing Section ==================== */
+        .pricing {
+            background: var(--background);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .pricing-duration {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .pricing-amount {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .pricing-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .pricing-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .pricing-feature:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-feature i {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /* ==================== Contact Section ==================== */
+        .contact {
+            background: var(--background);
+        }
+
+        .contact .container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .contact-info > p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .contact-method:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-method-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .contact-method-icon.email {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+
+        .contact-method-icon.phone {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .contact-method-icon.whatsapp {
+            background: rgba(37, 211, 102, 0.1);
+            color: #25D366;
+        }
+
+        .contact-method-text h4 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .contact-method-text a,
+        .contact-method-text span {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .contact-method-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form-wrapper {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .contact-form-wrapper > p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 15px;
+            font-family: Open Sans;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            background: var(--surface);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* ==================== Footer ==================== */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-section a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ==================== Responsive ==================== */
+        @media (max-width: 768px) {
+            .hero .container,
+            .contact .container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .footer .container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <img src="logo.ico" alt="Pavan Online Trainings logo" loading="lazy" decoding="async" width="48" height="48" />
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">Pavan Online Trainings</span>
+                    <span class="logo-tagline">SDET-QA</span>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="#curriculum" class="nav-link">Curriculum</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <!--<li><a href="#contact" class="nav-link">Contact</a></li>-->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-bolt"></i>
+                    AI-Powered Course Available
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="gradient-text">AI Powered Playwright Automaton</span> with Python	
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Playwright with Python (Web & API Testing)
+                </p>
+                
+                <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7;">
+                    Master end-to-end test automation using Playwright with Python. This comprehensive program covers UI automation, API testing, framework development, and AI-powered testing techniques.
+                </p>
+                <!--
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn btn-primary btn-lg">
+                        <i class="fas fa-graduation-cap"></i>
+                        Enroll Now
+                    </a>
+                    <a href="#contact" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-paper-plane"></i>
+                        Get More Info
+                    </a>
+                </div>
+             -->
+              <!--  <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">3 Months</div>
+                        <div class="stat-label">Program Duration</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">5 Days/Week</div>
+                        <div class="stat-label">Live Sessions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">100% Job Ready</div>
+                        <div class="stat-label">Career Support</div>
+                    </div>
+                </div> -->
+            </div>
+       
+            
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yellow"></div>
+                            <div class="code-dot green"></div>
+                        </div>
+                        <div class="code-body">
+                            <span class="code-line"><span class="code-comment"># Playwright with Python</span></span>
+                            <span class="code-line"><span class="code-keyword">from</span> playwright.sync_api <span class="code-keyword">import</span> sync_playwright</span>
+                            <span class="code-line"></span>
+                            <span class="code-line"><span class="code-keyword">def</span> <span class="code-function">test_example</span>():</span>
+                            <span class="code-line">    <span class="code-keyword">with</span> sync_playwright() <span class="code-keyword">as</span> p:</span>
+                            <span class="code-line">        browser = p.chromium.launch()</span>
+                            <span class="code-line">        page = browser.new_page()</span>
+                            <span class="code-line">        page.goto(<span class="code-string">'https://app.example.com'</span>)</span>
+                            <span class="code-line">        page.fill(<span class="code-string">'#email'</span>, <span class="code-string">'test@example.com'</span>)</span>
+                            <span class="code-line">        <span class="code-keyword">assert</span> <span class="code-string">'/dashboard'</span> <span class="code-keyword">in</span> page.url</span>
+                            <span class="code-line">        browser.close()</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">
+                    <i class="fas fa-star"></i>
+                    Training Benefits
+                </span>
+                <h2 class="section-title">Why Choose This Course?</h2>
+                <p class="section-subtitle">
+                    Comprehensive training with industry best practices, hands-on projects, and lifelong learning support.
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Access to Recorded Videos</h3>
+                    <p>Lifetime access to all recorded sessions for unlimited learning and review.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Frequently Asked Questions (FAQs)</h3>
+                    <p>Comprehensive FAQ resources to help answer common questions and accelerate your learning.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Thoughtful Assignments</h3>
+                    <p>Practical assignments designed to reinforce learning and build real-world skills.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Comprehensive Study Materials</h3>
+                    <p>Detailed study materials and reference guides to support your learning journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Resume Preparation Assistance</h3>
+                    <p>Professional resume building assistance to showcase your new skills to employers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Career Guidance</h3>
+                    <p>Expert career guidance to help you navigate job opportunities in test automation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Will Learn Section -->
+    <section class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">
+                    <i class="fas fa-lightbulb"></i>
+                    Learning Outcomes
+                </span>
+                <h2 class="section-title">What You Will Learn</h2>
+                <p class="section-subtitle">
+                    Comprehensive skills and knowledge to become an expert in Playwright and end-to-end automation testing.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div style="display: flex; gap: 16px;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">✓</div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">Build End-to-End Automation Frameworks</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">Create production-ready automation frameworks from scratch.</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 16px;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">✓</div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">Automate Web & API Testing</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">Master both UI and API automation using Playwright.</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 16px;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">✓</div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">Implement CI/CD Pipelines</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">Integrate automation with Jenkins & GitHub Actions.</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 16px;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">✓</div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">Perform Visual & Accessibility Testing</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">Advanced testing techniques including snapshot comparison.</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 16px;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">✓</div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">Leverage AI Tools for Automation</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">Accelerate development with AI-powered test generation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum section" id="curriculum">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">
+                    <i class="fas fa-book"></i>
+                    Learning Path
+                </span>
+                <h2 class="section-title">Complete Curriculum</h2>
+                <p class="section-subtitle">
+                    9 comprehensive modules covering everything from Python basics to advanced Playwright automation with AI integration.
+                </p>
+            </div>
+            
+            <div class="curriculum-grid">
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h3 class="module-title">Module 1: Introduction to Playwright</h3>
+                    </div>
+                    <div class="module-body">
+                        <ul class="module-topics">
+                            <li>Overview of Automation Testing</li>
+                            <li>Introduction to Playwright</li>
+                            <li>Key Features of Playwright</li>
+                            <li>Playwright Tools & Ecosystem</li>
+                            <li>Playwright vs Selenium</li>
+                            <li>Why Choose Python with Playwright?</li>
+                            <li>Supported Languages in Playwright</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="module-title">Module 2: Python Programming</h3>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-number">Environment Setup</div>
+                        <ul class="module-topics">
+                            <li>Installing Python & PyCharm</li>
+                        </ul>
+                        <div class="module-number">Core Python Concepts</div>
+                        <ul class="module-topics">
+                            <li>Variables, Data Types & Keywords</li>
+                            <li>Operators (Arithmetic, Logical, Comparison)</li>
+                            <li>Conditional Statements (if, elif, else, match-case)</li>
+                            <li>Loops (for, while, nested)</li>
+                            <li>Strings & Numbers</li>
+                        </ul>
+                        <div class="module-number">Collections</div>
+                        <ul class="module-topics">
+                            <li>List, Tuple, Set & Dictionary</li>
+                        </ul>
+                        <div class="module-number">Functions & Scope</div>
+                        <ul class="module-topics">
+                            <li>Functions, Arguments Types</li>
+                            <li>Global vs Local Variables</li>
+                        </ul>
+                        <div class="module-number">OOP Concepts</div>
+                        <ul class="module-topics">
+                            <li>Classes & Objects</li>
+                            <li>Constructors vs Methods</li>
+                            <li>Static Methods</li>
+                            <li>Inheritance & Polymorphism</li>
+                            <li>Method Overriding vs Overloading</li>
+                            <li>Encapsulation & Abstraction</li>
+                        </ul>
+                        <div class="module-number">Advanced Topics</div>
+                        <ul class="module-topics">
+                            <li>Modules & Packages</li>
+                            <li>File Handling</li>
+                            <li>Exception Handling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="module-title">Module 3: PyTest Framework</h3>
+                    </div>
+                    <div class="module-body">
+                        <ul class="module-topics">
+                            <li>Introduction to PyTest & Setup</li>
+                            <li>Writing Test Cases</li>
+                            <li>Fixtures & Reusable Fixtures</li>
+                            <li>Test Skipping & Grouping</li>
+                            <li>Test Ordering</li>
+                            <li>Parallel Execution</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-spider"></i>
+                        </div>
+                        <h3 class="module-title">Module 4: Web Automation using Playwright</h3>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-number">Getting Started</div>
+                        <ul class="module-topics">
+                            <li>Playwright Installation & Setup</li>
+                            <li>Creating and Running Tests</li>
+                            <li>Headless vs Headed Execution</li>
+                            <li>Parallel Execution & Cross-Browser Testing</li>
+                            <li>CLI Commands & Parameters</li>
+                            <li>Sync vs Async APIs</li>
+                        </ul>
+                        <div class="module-number">Locators</div>
+                        <ul class="module-topics">
+                            <li>Built-in Playwright Locators</li>
+                            <li>CSS Selectors & XPath</li>
+                        </ul>
+                        <div class="module-number">UI Interactions</div>
+                        <ul class="module-topics">
+                            <li>Click, Fill, Select, Check Actions</li>
+                            <li>Handling Radio Buttons, Checkboxes & Dropdowns</li>
+                        </ul>
+                        <div class="module-number">Working with Elements</div>
+                        <ul class="module-topics">
+                            <li>Text Handling (inner_text, text_content)</li>
+                            <li>Counting Elements</li>
+                            <li>Advanced Locators (nth, first, last, all)</li>
+                        </ul>
+                        <div class="module-number">Advanced UI Handling</div>
+                        <ul class="module-topics">
+                            <li>Web Tables (Static & Dynamic)</li>
+                            <li>Date Pickers</li>
+                            <li>iFrames & Dialogs</li>
+                            <li>Mouse & Keyboard Actions</li>
+                            <li>File Uploads & Downloads</li>
+                        </ul>
+                        <div class="module-number">Browser Contexts</div>
+                        <ul class="module-topics">
+                            <li>Multiple Tabs/Windows/Popups</li>
+                            <li>Shadow DOM Handling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="module-title">Module 5: Advanced Playwright Features</h3>
+                    </div>
+                    <div class="module-body">
+                        <ul class="module-topics">
+                            <li>Auto-Waiting & Timeout Handling</li>
+                            <li>Screenshots & Video Recording</li>
+                            <li>Trace Viewer & Execution Tracing</li>
+                            <li>Debugging Techniques</li>
+                            <li>Parameterized Testing (pytest.mark.parametrize)</li>
+                            <li>Data-Driven Testing (JSON, CSV, Excel)</li>
+                            <li>Codegen for Test Generation</li>
+                            <li>Reporting (HTML & Allure Reports)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3 class="module-title">Module 6: Framework Design & Development</h3>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-number">Introduction to Automation Frameworks</div>
+                        <ul class="module-topics">
+                            <li>Framework Design Phases</li>
+                            <li>Project Structure & Setup</li>
+                            <li>Playwright Configuration</li>
+                        </ul>
+                        <div class="module-number">Framework Implementation</div>
+                        <ul class="module-topics">
+                            <li>Custom Fixtures (conftest.py)</li>
+                            <li>Page Object Model (POM) Design</li>
+                            <li>Page Classes & Reusable Methods</li>
+                            <li>Test Data Management (JSON, CSV, Excel)</li>
+                            <li>Utility Functions & Data Providers</li>
+                            <li>Dynamic Test Data using Faker</li>
+                        </ul>
+                        <div class="module-number">Execution & Reporting</div>
+                        <ul class="module-topics">
+                            <li>Test Tagging & Organization</li>
+                            <li>HTML & Allure Reports</li>
+                            <li>pytest.ini Configuration</li>
+                            <li>Command Line Execution</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3 class="module-title">Module 7: CI/CD,Git & Jenkins Integration</h3>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-number">Git & GitHub</div>
+                        <ul class="module-topics">
+                            <li>Git Basics (Init, Commit, Push, Branching)</li>
+                            <li>GitHub Integration</li>
+                        </ul>
+                        <div class="module-number">CI/CD with GitHub Actions</div>
+                        <ul class="module-topics">
+                            <li>Workflow Setup</li>
+                            <li>Environment Configuration</li>
+                            <li>Trigger Automation on Push/Pull</li>
+                        </ul>
+                        <div class="module-number">CI/CD with Jenkins</div>
+                        <ul class="module-topics">
+                            <li>Jenkins Installation & Setup</li>
+                            <li>Plugin Configuration</li>
+                            <li>Creating Jobs & Pipelines</li>
+                            <li>Running Playwright Tests in Jenkins</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3 class="module-title">Module 8: API Testing using Playwright </h3>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-number">REST API Fundamentals</div>
+                        <ul class="module-topics">
+                            <li>API Testing using Playwright (APIRequestContext)</li>
+                            <li>HTTP Methods: GET, POST, PUT, PATCH, DELETE</li>
+                            <li>Dynamic Request Handling (JSON, Faker)</li>
+                            <li>Path & Query Parameters</li>
+                        </ul>
+                        <div class="module-number">Validations</div>
+                        <ul class="module-topics">
+                            <li>Status Codes</li>
+                            <li>Headers & Response Body</li>
+                        </ul>
+                        <div class="module-number">Advanced Concepts</div>
+                        <ul class="module-topics">
+                            <li>API Chaining</li>
+                            <li>Authentication Methods: Basic Auth, Bearer Token, API Key, OAuth2</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="module-title">Module 9: Playwright Integration with AI</h3>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-number">Introduction to Generative AI & LLMs</div>
+                        <ul class="module-topics">
+                            <li>Prompt Engineering for Test Automation</li>
+                            <li>Key AI Concepts for Testers</li>
+                            <li>Vibe Coding & Smart Automation</li>
+                        </ul>
+                        <div class="module-number">AI in Automation</div>
+                        <ul class="module-topics">
+                            <li>Auto-Healing Concepts</li>
+                            <li>GitHub Copilot for Python Automation</li>
+                            <li>Generating Playwright Tests using AI</li>
+                        </ul>
+                        <div class="module-number">Advanced Integration</div>
+                        <ul class="module-topics">
+                            <li>PyCharm + GitHub Copilot + Playwright MCP</li>
+                            <li>Generate & Execute Tests using Model Context Protocol (MCP)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule & Course Details Section -->
+    <section class="section" style="background: var(--background);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">
+                    <i class="fas fa-calendar"></i>
+                    Course Details
+                </span>
+                <h2 class="section-title">Schedule & Course Information</h2>
+                <p class="section-subtitle">
+                    Everything you need to know about the course timing, structure, and enrollment.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                <div style="background: white; border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); text-align: center;">
+                    <div style="font-size: 48px; color: var(--primary); margin-bottom: 16px;">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 style="font-size: 18px; font-weight: 700; color: var(--secondary); margin-bottom: 12px;">Start Date & Time</h3>
+                    <p style="font-size: 16px; color: var(--text-secondary);">TBA</p>
+                </div>
+                
+                <div style="background: white; border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); text-align: center;">
+                    <div style="font-size: 48px; color: var(--primary); margin-bottom: 16px;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 style="font-size: 18px; font-weight: 700; color: var(--secondary); margin-bottom: 12px;">Duration</h3>
+                    <p style="font-size: 16px; color: var(--text-secondary);">12 weeks<br><small style="font-size: 14px;">Weekly 5 sessions Monday-Friday</small></p>
+                </div>
+                
+                <div style="background: white; border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); text-align: center;">
+                    <div style="font-size: 48px; color: var(--primary); margin-bottom: 16px;">
+                        <i class="fas fa-chalkboard-user"></i>
+                    </div>
+                    <h3 style="font-size: 18px; font-weight: 700; color: var(--secondary); margin-bottom: 12px;">Trainer</h3>
+                    <p style="font-size: 16px; color: var(--text-secondary);">Mr. Madan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pricing section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">
+                    <i class="fas fa-tag"></i>
+                    Flexible Plans
+                </span>
+                <h2 class="section-title">Pricing & Payment Options</h2>
+                <p class="section-subtitle">
+                    Affordable pricing with flexible payment options for learners worldwide.
+                </p>
+            </div>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">International</h3>
+                    <p class="pricing-duration">USA, UK, AUS, Europe, UAE</p>
+                    <div class="pricing-amount">$300</div>
+                    <p class="pricing-note">3-month program</p>
+                    
+                    <div style="margin-top: 24px; text-align: center;">
+                        <p style="font-size: 14px; font-weight: 600; color: var(--secondary); margin-bottom: 16px;">
+                            <i class="fab fa-paypal" style="color: #003087; margin-right: 8px;"></i>
+                            PayPal Payment
+                        </p>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input name="cmd" type="hidden" value="_s-xclick" />
+                        <input name="hosted_button_id" type="hidden" value="QGR8K6RBCY6U8" />
+                        <input name="currency_code" type="hidden" value="USD" />
+                        <span style="font-family: verdana;"><input alt="Buy Now" border="0" name="submit" src="https://www.paypalobjects.com/en_GB/i/btn/btn_paynowCC_LG.gif" title="PayPal - The safer, easier way to pay online!" type="image" />
+                        </span></form>
+
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="pricing-title">India</h3>
+                    <p class="pricing-duration">Indian Students</p>
+                    <div class="pricing-amount">₹16,999</div>
+                    <p class="pricing-note">3-month program</p>
+                    
+                    <div style="margin-top: 24px;">
+                        <div style="margin-bottom: 24px; padding: 16px; background: rgba(37, 99, 235, 0.05); border-radius: var(--radius); border-left: 4px solid var(--primary);">
+                            <h4 style="font-size: 14px; font-weight: 700; color: var(--secondary); margin-bottom: 12px;">
+                                <i class="fas fa-university" style="color: var(--primary); margin-right: 8px;"></i>
+                                Bank Transfer
+                            </h4>
+                            <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.8;">
+                                <p><strong>Name:</strong> Pavan Kumar Bhimavarapu</p>
+                                <p><strong>Account No:</strong> 777705578057</p>
+                                <p><strong>Account Type:</strong> Current</p>
+                                <p><strong>Bank Name:</strong> ICICI</p>
+                                <p><strong>IFSC Code:</strong> ICIC0001806</p>
+                            </div>
+                        </div> 
+                        
+                        <div style="text-align: center;">
+                            <p style="font-size: 14px; font-weight: 600; color: var(--secondary); margin-bottom: 12px;">
+                                <i class="fas fa-qrcode" style="color: var(--primary); margin-right: 8px;"></i>
+                                Pay via GPay/PhonePe/Paytm/UPI
+                            </p>
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9RJLd-A1BYICqDGRP3gnawcdiTMVlxlmygflD6AwoTCfqnzqB2Ss2AFDJilD80Hc1lyjbNjkElP2bORUCsmq4BFaq1wA7Z7yjkwfhrQ0R8hTo2S2PQeqpJQ51i0qZJ41uio149bFjKJxU3at_14dsLRRcxzQB7ogfXYjg9RAG4HuNK6aphTCGuYLT9ZY_/w288-h400/qrcode.png" alt="UPI QR Code" style="max-width: 200px; height: auto; border-radius: var(--radius); box-shadow: var(--shadow-md); display: block; margin: 0 auto;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Instructions -->
+            <div style="background: white; border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow); margin-top: 60px;">
+                <h3 style="font-size: 24px; font-weight: 700; color: var(--secondary); margin-bottom: 24px; text-align: center;">
+                    <i class="fas fa-exclamation-triangle" style="color: var(--warning); margin-right: 12px;"></i>
+                    Important Instructions Before Payment
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+                    <div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--secondary); margin-bottom: 12px;">
+                            <i class="fas fa-credit-card" style="color: var(--primary); margin-right: 8px;"></i>
+                            Payment Guidelines
+                        </h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px; color: var(--text-secondary);">💵 Do the payment <b>only after announcing the date</b></li>
+                            <li style="margin-bottom: 10px; color: var(--text-secondary);">🚫 The course fee is <b>non-refundable</b></li>
+                            <li style="margin-bottom: 10px; color: var(--text-secondary);">🔹 Payment must be made in full (No EMI/Installments)</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--secondary); margin-bottom: 12px;">
+                            <i class="fas fa-envelope" style="color: var(--primary); margin-right: 8px;"></i>
+                            After Payment
+                        </h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px; color: var(--text-secondary);">📷 Send payment screenshot to email "<b>pavanoltraining@gmail.com</b>"</li>
+                            <li style="margin-bottom: 10px; color: var(--text-secondary);">📛 Mention your name and course in the email</li>
+                            <li style="margin-bottom: 10px; color: var(--text-secondary);">📩 Receive class joining instructions via email before the session.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- 
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="contact-info">
+                <h2>Contact for Queries</h2>
+                <p>Have questions about the Playwright course? Reach out to us through any of these channels. We're here to help!</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-method-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-method-text">
+                            <h4>Email</h4>
+                            <a href="mailto:pavanoltraining@gmail.com">pavanoltraining@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-method-icon phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-method-text">
+                            <h4>Phone</h4>
+                            <span>Available via email</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-method-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-method-text">
+                            <h4>WhatsApp</h4>
+                            <span>Contact us via email for WhatsApp details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <h3>Send us a Message</h3>
+                <p>Fill out the form below and we'll get back to you shortly.</p>
+                
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" name="country">
+                                <option value="">Select Country</option>
+                                <option value="usa">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="india">India</option>
+                                <option value="canada">Canada</option>
+                                <option value="australia">Australia</option>
+                                <option value="uae">United Arab Emirates</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your experience, interests, and goals..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+-->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <img src="https://yt3.ggpht.com/oszpiP2IfE1XadFGRFSIMfK0N3RAG_xSkc0XA6F_PQnTlgkQjRyuNCKn5QJGbJfP-x19GmPkGg=s48-c-k-c0x00ffffff-no-rj" alt="Pavan Online Trainings" width="40" height="40" />
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Pavan Online Trainings</span>
+                        <span class="logo-tagline">Mr. Pavan</span>
+                    </div>
+                </a>
+                <p style="margin-top: 16px; font-size: 14px; color: rgba(255, 255, 255, 0.6); line-height: 1.6;">
+                    Master modern browser automation and test automation with industry-leading training from expert instructor Mr. Pavan. Transform your QA career with hands-on projects, real-world experience, and comprehensive AI-powered testing techniques.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#curriculum">Curriculum</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <!--<li><a href="#contact">Contact</a></li>-->
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Course FAQ</a></li>
+                    <li><a href="#">Study Materials</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pavan Online Trainings. All rights reserved. | <a href="#" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255, 255, 255, 0.7);">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Active nav link on scroll
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission (basic)
+        /*
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                form.reset();
+            });
+        }*/
+    </script>
+</body>
+</html>

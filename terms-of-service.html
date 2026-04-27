@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service for Pavan Online Trainings. Read our terms and conditions for using our training services.">
+    <title>Terms of Service | Pavan Online Trainings</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2575fc;
+            --primary-dark: #6a11cb;
+            --secondary: #0b1220;
+            --background: #f6f8fb;
+            --surface: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .logo-tagline {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .back-link {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Main Content */
+        .main {
+            padding: 60px 0 100px;
+        }
+
+        .policy-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .policy-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .policy-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .policy-content {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .policy-section {
+            margin-bottom: 32px;
+        }
+
+        .policy-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .section-content p {
+            margin-bottom: 16px;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-content ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .section-content li {
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            background: rgba(37, 117, 252, 0.05);
+            border: 1px solid rgba(37, 117, 252, 0.1);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .contact-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .contact-link {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .policy-title {
+                font-size: 28px;
+            }
+
+            .policy-content {
+                padding: 24px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="logo.ico" alt="Pavan Online Trainings logo" loading="lazy" decoding="async" width="48" height="48" />
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">Pavan Online Trainings</span>
+                    <span class="logo-tagline">SDET-QA</span>
+                </div>
+            </a>
+
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="policy-header">
+                <h1 class="policy-title">Terms of Service</h1>
+                <p class="policy-subtitle">Please read these terms carefully before using our training services.</p>
+            </div>
+
+            <div class="policy-content">
+                <div class="policy-section">
+                    <h2 class="section-title">Acceptance of Terms</h2>
+                    <div class="section-content">
+                        <p>By accessing and using Pavan Online Trainings services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Description of Service</h2>
+                    <div class="section-content">
+                        <p>Pavan Online Trainings provides online training courses in software testing and automation, including but not limited to:</p>
+                        <ul>
+                            <li>Playwright automation training</li>
+                            <li>Selenium automation training</li>
+                            <li>API testing courses</li>
+                            <li>DevOps and CI/CD training</li>
+                            <li>AI-powered testing courses</li>
+                        </ul>
+                        <p>Services are delivered through online platforms, recorded sessions, and interactive learning materials.</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">User Accounts</h2>
+                    <div class="section-content">
+                        <p>To access certain features of our service, you may be required to create an account. You are responsible for:</p>
+                        <ul>
+                            <li>Maintaining the confidentiality of your account credentials</li>
+                            <li>All activities that occur under your account</li>
+                            <li>Notifying us immediately of any unauthorized use</li>
+                            <li>Providing accurate and complete information</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Payment Terms</h2>
+                    <div class="section-content">
+                        <p>All fees for courses and services are clearly stated on our website. Payment terms include:</p>
+                        <ul>
+                            <li>Full payment is required before course access</li>
+                            <li>Payments are processed securely through authorized payment gateways</li>
+                            <li>All fees are non-refundable unless otherwise specified</li>
+                            <li>Prices are subject to change without notice</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Course Access and Duration</h2>
+                    <div class="section-content">
+                        <p>Upon successful payment, students receive:</p>
+                        <ul>
+                            <li>Access to course materials and recorded sessions</li>
+                            <li>Lifetime access to recorded content (unless otherwise specified)</li>
+                            <li>Access to community forums and support</li>
+                            <li>Certificate of completion (where applicable)</li>
+                        </ul>
+                        <p>Live sessions may have specific schedules and limited availability.</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Intellectual Property</h2>
+                    <div class="section-content">
+                        <p>All course content, materials, and resources provided by Pavan Online Trainings are protected by intellectual property laws. You may not:</p>
+                        <ul>
+                            <li>Copy, distribute, or share course materials</li>
+                            <li>Use content for commercial purposes without permission</li>
+                            <li>Modify or create derivative works</li>
+                            <li>Share login credentials with others</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">User Conduct</h2>
+                    <div class="section-content">
+                        <p>Users agree to use our services responsibly and lawfully. Prohibited activities include:</p>
+                        <ul>
+                            <li>Harassing or abusing instructors or other students</li>
+                            <li>Sharing inappropriate or offensive content</li>
+                            <li>Attempting to hack or disrupt our systems</li>
+                            <li>Violating any applicable laws or regulations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Privacy and Data Protection</h2>
+                    <div class="section-content">
+                        <p>Your privacy is important to us. Please review our Privacy Policy, which also governs your use of our services, to understand our practices.</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Limitation of Liability</h2>
+                    <div class="section-content">
+                        <p>Pavan Online Trainings shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with the use of our services. Our total liability shall not exceed the amount paid for the specific service.</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Refund Policy</h2>
+                    <div class="section-content">
+                        <p>Please refer to our Refund Policy for detailed information about refunds and cancellations.</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Termination</h2>
+                    <div class="section-content">
+                        <p>We reserve the right to terminate or suspend your account and access to our services immediately, without prior notice, for conduct that we believe violates these Terms of Service or is harmful to other users, us, or third parties.</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Changes to Terms</h2>
+                    <div class="section-content">
+                        <p>We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting on our website. Your continued use of our services constitutes acceptance of the modified terms.</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">Governing Law</h2>
+                    <div class="section-content">
+                        <p>These Terms of Service shall be governed by and construed in accordance with the laws of India. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in India.</p>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h3 class="contact-title">Contact Information</h3>
+                    <p class="contact-text">If you have any questions about these Terms of Service, please contact us:</p>
+                    <p class="contact-text"><strong>Email:</strong> <a href="mailto:pavanoltraining@gmail.com" class="contact-link">pavanoltraining@gmail.com</a></p>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+                <a href="refund-policy.html" class="footer-link">Refund Policy</a>
+            </div>
+            <p class="footer-copyright">© 2026 Pavan Online Trainings. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
