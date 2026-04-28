@@ -1,0 +1,109 @@
+Module 1: Introduction to AI and Large Language Models 
+
+What is Artificial Intelligence?
+AI vs ML vs Deep Learning vs Generative AI
+Introduction to NLP
+What are Large Language Models?
+How LLMs work (high level)
+Tokens, embeddings, context window
+Prompt → Model → Response flow
+Popular models overview: GPT, Claude, Llama, Gemini
+Real-world LLM applications
+Traditional software vs AI systems
+
+Module 2: Python for AI Testing & Automation
+
+Python installation and setup
+Virtual environments
+Variables and data types
+Functions and modules
+Lists, dictionaries, JSON
+File handling
+Exception handling
+Logging and debugging
+API testing using Python
+.env and secrets handling
+Intro to pytest
+Writing reusable test utilities
+Test data preparation
+Automation framework structure
+Batch execution scripts
+Reporting basics
+
+
+Module 3: Fundamentals of AI Testing
+
+Traditional testing vs AI testing
+Deterministic vs probabilistic outputs
+Unique testing challenges
+Hallucination
+Bias and fairness
+Toxicity testing
+Prompt sensitivity
+Regression risks
+Model drift
+Privacy and compliance basics
+
+Module 4: LLM Testing with DeepEval
+
+Introduction to DeepEval
+Test cases
+Evaluators
+LLM-as-a-judge
+Rule-based evaluation
+Golden datasets
+Automated validation workflows
+Metrics: relevancy, faithfulness, correctness, hallucination, toxicity, bias, latency
+
+Module 5: RAG Testing using RAGAS (5 Hours)**
+
+What is RAG?
+Retriever + generator flow
+Chunking validation
+Embedding quality
+Vector database validation
+Groundedness testing
+Retrieval correctness
+Metrics: faithfulness, context precision, context recall, answer relevancy
+
+Module 6: Agentic RAG Testing
+
+Multi-step retrieval
+Planner + executor flows
+Tool validation
+Memory testing
+Multi-hop reasoning validation
+Failure path testing
+
+Module 7: AI Agents Testing with DeepEval
+
+Function/tool calling validation
+Multi-step agent workflows
+Memory and context validation
+Tool selection correctness
+Intermediate reasoning validation
+Response consistency checks
+Agent failure and fallback testing
+DeepEval metrics:
+Task completion
+Tool correctness
+Argument correctness
+Turn relevancy
+Conversation completeness
+
+Module 8: Promptfoo for Prompt & Regression Testing
+
+YAML-based assertions
+Output validation
+Multi-model comparison
+Regression testing
+Safety prompt checks
+
+Module 9: Voice Agent Testing
+
+Speech-to-text testing
+LLM response validation
+Text-to-speech testing
+Intent accuracy
+Latency testing
+Interruption and fallback testing
