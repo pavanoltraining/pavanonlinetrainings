@@ -81,7 +81,7 @@
         }
 
         button {
-            font-family: Open Sans;
+            font-family: Poppins;
             cursor: pointer;
             border: none;
             outline: none;
@@ -108,7 +108,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             color: var(--primary);
             text-transform: uppercase;
@@ -117,7 +117,7 @@
         }
 
         .section-label i {
-            font-size: 12px;
+            font-size: 14px;
         }
 
         .section-title {
@@ -149,7 +149,7 @@
             justify-content: center;
             gap: 10px;
             padding: 14px 28px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             border-radius: var(--radius);
             transition: var(--transition);
@@ -261,7 +261,7 @@
 
         .nav-link {
             padding: 10px 16px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             color: var(--text-secondary);
             border-radius: var(--radius-sm);
@@ -316,7 +316,7 @@
             background: rgba(37, 99, 235, 0.1);
             border: 1px solid rgba(37, 99, 235, 0.2);
             border-radius: 50px;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             color: var(--primary);
             margin-bottom: 24px;
@@ -376,7 +376,7 @@
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: 16px;
             color: var(--text-muted);
             margin-top: 4px;
         }
@@ -545,7 +545,7 @@
         }
 
         .feature-card p {
-            font-size: 15px;
+            font-size: 16px;
             color: rgba(255, 255, 255, 0.6);
             line-height: 1.6;
         }
@@ -557,22 +557,21 @@
 
         .curriculum-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 20px;
+            perspective: 1000px;
         }
 
         .module-card {
-            background: white;
-            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, white 0%, #f8fafc 100%);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
             transition: var(--transition);
             position: relative;
-        }
-
-        .module-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         .module-card::before {
@@ -581,71 +580,142 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, #2575fc 100%);
+        }
+
+        .module-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(106, 17, 203, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .module-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.3);
         }
 
         .module-header {
-            padding: 28px 24px 20px;
+            padding: 24px 28px 16px;
             display: flex;
             align-items: flex-start;
-            gap: 16px;
+            gap: 18px;
+            position: relative;
+            z-index: 1;
         }
 
         .module-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: var(--radius);
+            width: 68px;
+            height: 68px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 32px;
             flex-shrink: 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+            position: relative;
+        }
+
+        .module-icon::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 16px;
+            opacity: 0.1;
+            z-index: -1;
         }
 
         .module-title {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 800;
             color: var(--secondary);
-            line-height: 1.4;
+            line-height: 1.3;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .module-body {
-            padding: 0 24px 24px;
+            padding: 4px 28px 12px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
         }
 
         .module-number {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 4px 12px;
-            background: rgba(37, 99, 235, 0.1);
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(106, 17, 203, 0.08) 100%);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
             color: var(--primary);
-            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            transition: var(--transition);
+            align-self: flex-start;
+            margin-bottom: 4px;
+        }
+
+        .module-number::before {
+            content: '◆';
+            font-size: 10px;
+            color: var(--accent);
         }
 
         .module-topics {
-            font-size: 14px;
+            font-size: 16px;
             color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 16px;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .module-topics li {
-            margin-left: 20px;
-            margin-bottom: 6px;
+            margin-left: 0;
+            margin-bottom: 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 4px 12px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .module-topics li:hover {
+            background: rgba(37, 99, 235, 0.05);
+            transform: translateX(4px);
         }
 
         .module-topics li:before {
-            content: "✓";
-            margin-right: 8px;
-            color: var(--success);
+            content: "→";
+            margin-right: 0;
+            margin-left: 0;
+            color: var(--primary);
             font-weight: 700;
+            min-width: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
         }
 
         /* ==================== Pricing Section ==================== */
@@ -686,20 +756,20 @@
         }
 
         .pricing-duration {
-            font-size: 14px;
+            font-size: 16px;
             color: var(--text-muted);
             margin-bottom: 24px;
         }
 
         .pricing-amount {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 800;
             color: var(--primary);
             margin-bottom: 8px;
         }
 
         .pricing-note {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-muted);
             margin-bottom: 32px;
         }
@@ -715,7 +785,7 @@
             gap: 12px;
             padding: 12px 0;
             border-bottom: 1px solid var(--border);
-            font-size: 14px;
+            font-size: 16px;
             color: var(--text-secondary);
         }
 
@@ -805,7 +875,7 @@
         }
 
         .contact-method-text h4 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             color: var(--text-muted);
             margin-bottom: 4px;
@@ -837,7 +907,7 @@
         }
 
         .contact-form-wrapper > p {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--text-secondary);
             margin-bottom: 32px;
         }
@@ -848,7 +918,7 @@
 
         .form-group label {
             display: block;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 8px;
@@ -859,8 +929,8 @@
         .form-group textarea {
             width: 100%;
             padding: 14px 18px;
-            font-size: 15px;
-            font-family: Open Sans;
+            font-size: 16px;
+            font-family: Poppins;
             border: 2px solid var(--border);
             border-radius: var(--radius-sm);
             transition: var(--transition);
@@ -915,7 +985,7 @@
         }
 
         .footer-section a {
-            font-size: 14px;
+            font-size: 16px;
             color: rgba(255, 255, 255, 0.7);
             transition: var(--transition);
         }
@@ -928,7 +998,7 @@
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
+            font-size: 16px;
             color: rgba(255, 255, 255, 0.6);
         }
 
@@ -1529,10 +1599,11 @@
                             <i class="fas fa-envelope" style="color: var(--primary); margin-right: 8px;"></i>
                             After Payment
                         </h4>
-                        <ul style="list-style: none; padding-left: 0;">
+                           <ul style="list-style: none; padding-left: 0;">
                             <li style="margin-bottom: 10px; color: var(--text-secondary);">📷 Send payment screenshot to email "<b>pavanoltraining@gmail.com</b>"</li>
                             <li style="margin-bottom: 10px; color: var(--text-secondary);">📛 Mention your name and course in the email</li>
                             <li style="margin-bottom: 10px; color: var(--text-secondary);">📩 Receive class joining instructions via email before the session.</li>
+							<li style="margin-bottom: 10px; color: var(--text-secondary);">🟢 You will be added to the dedicated WhatsApp group.</li>
                         </ul>
                     </div>
                 </div>
