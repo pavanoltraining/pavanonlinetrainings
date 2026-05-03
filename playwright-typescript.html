@@ -274,6 +274,51 @@
             background: rgba(37, 99, 235, 0.08);
         }
 
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+            background: none;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--secondary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ==================== Mobile Navigation ==================== */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 24px;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 16px;
+            font-size: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
         /* ==================== Hero Section ==================== */
         .hero {
             position: relative;
@@ -1025,6 +1070,10 @@
             .nav-links {
                 display: none;
             }
+
+            .mobile-toggle {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -1052,8 +1101,23 @@
 				 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfb4_VWgdlo3ipcMQzZ0jctmhD0DY__OK_f1i0RC3r5aXNi2g/viewform?usp=header" class="nav-link">Register</a>
        
             </ul>
+            
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+     <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#curriculum" class="nav-link">Curriculum</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfb4_VWgdlo3ipcMQzZ0jctmhD0DY__OK_f1i0RC3r5aXNi2g/viewform?usp=header" class="nav-link">Register</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1751,95 +1815,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <!-- 
-    <section class="contact section" id="contact">
-        <div class="container">
-            <div class="contact-info">
-                <h2>Contact for Queries</h2>
-                <p>Have questions about the Playwright course? Reach out to us through any of these channels. We're here to help!</p>
-                
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <div class="contact-method-icon email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-method-text">
-                            <h4>Email</h4>
-                            <a href="mailto:pavanoltraining@gmail.com">pavanoltraining@gmail.com</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <div class="contact-method-icon phone">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-method-text">
-                            <h4>Phone</h4>
-                            <span>Available via email</span>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <div class="contact-method-icon whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="contact-method-text">
-                            <h4>WhatsApp</h4>
-                            <span>Contact us via email for WhatsApp details</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-form-wrapper">
-                <h3>Send us a Message</h3>
-                <p>Fill out the form below and we'll get back to you shortly.</p>
-                
-                <form>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <select id="country" name="country">
-                                <option value="">Select Country</option>
-                                <option value="usa">United States</option>
-                                <option value="uk">United Kingdom</option>
-                                <option value="india">India</option>
-                                <option value="canada">Canada</option>
-                                <option value="australia">Australia</option>
-                                <option value="uae">United Arab Emirates</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your experience, interests, and goals..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
--->
-
+   
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1887,6 +1863,23 @@
 
     
     <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            });
+        });
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
