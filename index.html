@@ -16,48 +16,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* ==================== CSS VARIABLES - VIBRANT DARK MODE ==================== */
+        /* ==================== CSS Variables ==================== */
         :root {
-            /* Vibrant Dark Theme Palette */
-            --primary: #c084fc;           /* vibrant purple */
-            --primary-dark: #a855f7;      /* deep purple */
-            --primary-light: #d8b4fe;     /* soft purple */
-            --secondary: #0f172a;         /* dark navy */
-            --accent: #2dd4bf;            /* neon cyan highlight */
-            --success: #22c55e;
+            /* Updated professional palette (indigo -> electric purple) */
+            --primary: #2575fc; /* electric blue */
+            --primary-dark: #6a11cb; /* deep purple */
+            --primary-light: #3b82f6;
+            --secondary: #0b1220; /* very dark text */
+            --accent: #6a11cb; /* purple accent */
+            --success: #10b981;
             --warning: #f59e0b;
-
-            /* Backgrounds - Deep Dark */
-            --background: #0a0a0f;        /* ultra dark main bg */
-            --surface: #11131f;           /* cards / sections */
-            --surface-dark: #08080e;      /* deeper sections */
-
-            /* Text Colors - High Contrast */
-            --text-primary: #f1f5f9;      /* near white */
-            --text-secondary: #cbd5f5;    /* soft gray-blue */
-            --text-muted: #7e8aa8;        /* muted text */
-
-            /* Borders with subtle glow */
-            --border: #1e293b;
-            --border-glow: rgba(192, 132, 252, 0.2);
-
-            /* Shadows & Glows */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-            --shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-            --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.7);
-            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.8);
-            --glow-primary: 0 0 20px rgba(192, 132, 252, 0.4);
-            --glow-accent: 0 0 20px rgba(45, 212, 191, 0.4);
-
-            /* Radius */
+            --background: #f6f8fb;
+            --surface: #ffffff;
+            --surface-dark: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
             --radius-sm: 6px;
             --radius: 12px;
             --radius-lg: 16px;
             --radius-xl: 24px;
-
-            /* Smooth transition */
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         /* ==================== Reset & Base ==================== */
         *, *::before, *::after {
             margin: 0;
@@ -81,7 +67,7 @@
 
         a {
             text-decoration: none;
-            color: inherit;
+            color: 'Poppins';
             transition: var(--transition);
         }
 
@@ -96,7 +82,7 @@
         }
 
         button {
-            font-family: 'Inter';
+            font-family: 'Poppins';
             cursor: pointer;
             border: none;
             outline: none;
@@ -125,14 +111,10 @@
             gap: 8px;
             font-size: 14px;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 16px;
-            background: rgba(45, 212, 191, 0.1);
-            padding: 6px 16px;
-            border-radius: 50px;
-            border: 1px solid rgba(45, 212, 191, 0.3);
         }
 
         .section-label i {
@@ -142,10 +124,7 @@
         .section-title {
             font-size: clamp(32px, 5vw, 48px);
             font-weight: 800;
-            background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--secondary);
             margin-bottom: 16px;
             line-height: 1.2;
         }
@@ -181,12 +160,12 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            box-shadow: 0 4px 14px 0 rgba(168, 85, 247, 0.4);
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px 0 rgba(168, 85, 247, 0.5);
+            box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.5);
         }
 
         .btn-secondary {
@@ -198,7 +177,7 @@
         .btn-secondary:hover {
             background: var(--secondary);
             color: white;
-            border-color: var(--primary);
+            border-color: var(--secondary);
         }
 
         .btn-outline {
@@ -239,9 +218,9 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(10, 10, 15, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-glow);
+            border-bottom: 1px solid var(--border);
             transition: var(--transition);
         }
 
@@ -270,11 +249,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0a0a0f;
+            color: white;
             font-size: 20px;
             font-weight: 800;
         }
 
+        /* allow logo to be an image inside .logo-icon */
         .logo-icon img {
             width: 100%;
             height: 100%;
@@ -291,10 +271,7 @@
         .logo-name {
             font-size: 18px;
             font-weight: 700;
-            background: linear-gradient(135deg, #fff, var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--secondary);
             line-height: 1.2;
         }
 
@@ -322,8 +299,7 @@
         .nav-link:hover,
         .nav-link.active {
             color: var(--primary);
-            background: rgba(192, 132, 252, 0.1);
-            text-shadow: 0 0 8px rgba(192, 132, 252, 0.3);
+            background: rgba(37, 99, 235, 0.08);
         }
 
         .nav-cta {
@@ -341,7 +317,7 @@
         .mobile-toggle span {
             width: 24px;
             height: 2px;
-            background: var(--text-primary);
+            background: var(--secondary);
             border-radius: 2px;
             transition: var(--transition);
         }
@@ -353,7 +329,7 @@
             display: flex;
             align-items: center;
             padding-top: 80px;
-            background: radial-gradient(ellipse at 20% 30%, rgba(192, 132, 252, 0.08), transparent 70%);
+            background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
             overflow: hidden;
         }
 
@@ -364,7 +340,7 @@
             right: -20%;
             width: 80%;
             height: 150%;
-            background: radial-gradient(circle, rgba(192, 132, 252, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -385,12 +361,12 @@
             align-items: center;
             gap: 10px;
             padding: 8px 16px;
-            background: rgba(192, 132, 252, 0.1);
-            border: 1px solid rgba(192, 132, 252, 0.3);
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
             border-radius: 50px;
             font-size: 14px;
             font-weight: 500;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 24px;
             animation: fadeInUp 0.6s ease-out;
         }
@@ -408,10 +384,7 @@
             font-size: clamp(40px, 6vw, 54px);
             font-weight: 800;
             line-height: 1.1;
-            background: linear-gradient(135deg, #fff, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--secondary);
             margin-bottom: 24px;
             animation: fadeInUp 0.6s ease-out 0.1s backwards;
         }
@@ -446,7 +419,7 @@
         .stat-value {
             font-size: 36px;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--secondary);
             line-height: 1;
         }
 
@@ -463,12 +436,10 @@
 
         .hero-image {
             position: relative;
-            background: linear-gradient(135deg, rgba(192, 132, 252, 0.2) 0%, rgba(45, 212, 191, 0.2) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             border-radius: var(--radius-xl);
             padding: 40px;
             box-shadow: var(--shadow-lg);
-            backdrop-filter: blur(4px);
-            border: 1px solid var(--border-glow);
         }
 
         .code-window {
@@ -515,7 +486,7 @@
 
         .floating-card {
             position: absolute;
-            background: var(--surface);
+            background: white;
             border-radius: var(--radius);
             padding: 16px 20px;
             box-shadow: var(--shadow-lg);
@@ -523,8 +494,6 @@
             align-items: center;
             gap: 12px;
             animation: float 3s ease-in-out infinite;
-            border: 1px solid var(--border-glow);
-            backdrop-filter: blur(8px);
         }
 
         .floating-card-1 {
@@ -560,14 +529,14 @@
         }
 
         .floating-card-icon.blue {
-            background: rgba(192, 132, 252, 0.1);
+            background: rgba(37, 99, 235, 0.1);
             color: var(--primary);
         }
 
         .floating-card-text {
             font-size: 14px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--secondary);
         }
 
         .floating-card-sub {
@@ -624,7 +593,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(192, 132, 252, 0.1) 0%, rgba(45, 212, 191, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
             z-index: 1;
         }
 
@@ -679,10 +648,7 @@
         .about-content h2 {
             font-size: clamp(32px, 4vw, 44px);
             font-weight: 800;
-            background: linear-gradient(135deg, #fff, var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--secondary);
             margin-bottom: 24px;
             line-height: 1.2;
         }
@@ -727,7 +693,7 @@
 
         /* ==================== Highlights Section ==================== */
         .highlights {
-            background: var(--surface-dark);
+            background: var(--secondary);
             position: relative;
             overflow: hidden;
         }
@@ -747,10 +713,7 @@
         }
 
         .highlights .section-title {
-            background: linear-gradient(135deg, #fff, var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: white;
         }
 
         .highlights .section-subtitle {
@@ -764,8 +727,8 @@
         }
 
         .highlight-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--radius-lg);
             padding: 32px;
             text-align: center;
@@ -787,9 +750,8 @@
         }
 
         .highlight-card:hover {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-8px);
-            border-color: rgba(192, 132, 252, 0.3);
         }
 
         .highlight-card:hover::before {
@@ -806,7 +768,7 @@
             align-items: center;
             justify-content: center;
             font-size: 32px;
-            color: #0a0a0f;
+            color: white;
         }
 
         .highlight-card h3 {
@@ -834,19 +796,17 @@
         }
 
         .course-card {
-            background: var(--surface);
+            background: white;
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
-            border: 1px solid var(--border-glow);
         }
 
         .course-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
         }
 
         .course-card::before {
@@ -887,7 +847,7 @@
         .course-info h3 {
             font-size: 18px;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--secondary);
             margin-bottom: 8px;
             line-height: 1.4;
         }
@@ -897,7 +857,7 @@
             align-items: center;
             gap: 6px;
             padding: 4px 12px;
-            background: rgba(192, 132, 252, 0.15);
+            background: rgba(37, 99, 235, 0.1);
             border-radius: 50px;
             font-size: 12px;
             font-weight: 600;
@@ -944,11 +904,10 @@
         }
 
         .batches-wrapper {
-            background: var(--surface);
+            background: white;
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-lg);
             overflow: hidden;
-            border: 1px solid var(--border-glow);
         }
 
         .batches-table {
@@ -981,7 +940,7 @@
         }
 
         .batches-table tbody tr:hover {
-            background: rgba(192, 132, 252, 0.05);
+            background: var(--surface);
         }
 
         .batches-table tbody tr:last-child td {
@@ -1003,12 +962,12 @@
             justify-content: center;
             font-size: 20px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: #0a0a0f;
+            color: white;
         }
 
         .batch-course-name {
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--secondary);
         }
 
         .batch-date {
@@ -1021,7 +980,7 @@
 
         .batch-fee {
             font-weight: 700;
-            color: var(--primary);
+            color: var(--secondary);
             white-space: nowrap;
         }
 
@@ -1030,13 +989,13 @@
             display: inline-block;
             padding: 6px 12px;
             border-radius: 8px;
-            background: rgba(192, 132, 252, 0.1);
-            color: var(--primary);
-            font-weight: 600;
+            background: rgba(16,24,40,0.04);
+            color: var(--secondary);
+            font-weight:600;
         }
 
         .batch-date i {
-            color: var(--accent);
+            color: var(--primary);
         }
 
         .batch-duration,
@@ -1048,7 +1007,7 @@
         .batch-status {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap:6px;
             padding: 6px 14px;
             border-radius: 50px;
             font-size: 13px;
@@ -1056,12 +1015,12 @@
         }
 
         .batch-status.open {
-            background: rgba(16, 185, 129, 0.15);
+            background: rgba(16, 185, 129, 0.1);
             color: var(--success);
         }
 
         .batch-status.filling {
-            background: rgba(245, 158, 11, 0.15);
+            background: rgba(245, 158, 11, 0.1);
             color: var(--warning);
         }
 
@@ -1071,7 +1030,7 @@
         }
 
         .batch-card {
-            background: var(--surface);
+            background: white;
             border-radius: var(--radius-lg);
             padding: 24px;
             margin-bottom: 16px;
@@ -1124,18 +1083,16 @@
         }
 
         .udemy-card {
-            background: var(--surface);
+            background: white;
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid var(--border-glow);
         }
 
         .udemy-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--accent);
         }
 
         .udemy-thumbnail {
@@ -1148,6 +1105,7 @@
             overflow: hidden;
         }
 
+        /* allow course thumbnails to use images */
         .udemy-thumbnail img {
             width: 100%;
             height: 100%;
@@ -1161,6 +1119,7 @@
             color: rgba(255, 255, 255, 0.2);
         }
 
+        /* Position badges in thumbnail corner */
         .udemy-thumbnail .badge {
             position: absolute;
             top: 12px;
@@ -1173,6 +1132,7 @@
             box-shadow: 0 6px 18px rgba(10,10,10,0.12);
         }
 
+        /* Interactive hover & focus states */
         .udemy-card {
             transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
@@ -1180,7 +1140,7 @@
         .udemy-card:hover,
         .udemy-card:focus-within {
             transform: translateY(-10px);
-            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 50px rgba(16,24,40,0.12);
         }
 
         .udemy-card:hover .udemy-thumbnail img,
@@ -1196,7 +1156,7 @@
         .udemy-content h3 {
             font-size: 17px;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--secondary);
             margin-bottom: 12px;
             line-height: 1.4;
         }
@@ -1235,7 +1195,7 @@
         .udemy-current-price {
             font-size: 24px;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .udemy-original-price {
@@ -1247,8 +1207,7 @@
         .udemy-card .btn {
             width: 100%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: #0a0a0f;
-            font-weight: bold;
+            color: white
         }
 
         .udemy-card .btn:hover {
@@ -1256,6 +1215,7 @@
             transform: translateY(-2px);
         }
 
+        /* badges adapted from udemycourses.html */
         .badge {
             display: inline-block;
             margin-top: 12px;
@@ -1266,9 +1226,9 @@
             color: #fff;
         }
 
-        .best-seller{background:linear-gradient(135deg,#11998e,#38ef7d);}
-        .most-trending{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
-        .premium{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
+        .best-seller{background:linear-gradient(135deg,#11998e,#38ef7d);} /* teal */
+        .most-trending{background:linear-gradient(135deg,#ff416c,#ff4b2b);} /* pink -> orange */
+        .premium{background:linear-gradient(135deg,#8e2de2,#4a00e0);} /* purple */
 
         /* ==================== Testimonials Section ==================== */
         .testimonials {
@@ -1283,19 +1243,17 @@
         }
 
         .testimonial-card {
-            background: var(--surface);
+            background: white;
             border-radius: var(--radius-lg);
             padding: 32px;
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
-            border: 1px solid var(--border-glow);
         }
 
         .testimonial-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
         }
 
         .testimonial-card::before {
@@ -1339,7 +1297,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0a0a0f;
+            color: white;
             font-size: 20px;
             font-weight: 700;
         }
@@ -1347,7 +1305,7 @@
         .testimonial-info h4 {
             font-size: 16px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--secondary);
         }
 
         .testimonial-info span {
@@ -1360,13 +1318,12 @@
             border-radius: var(--radius-xl);
             padding: 40px;
             text-align: center;
-            border: 1px solid var(--border-glow);
         }
 
         .google-reviews h3 {
             font-size: 24px;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--secondary);
             margin-bottom: 16px;
         }
 
@@ -1386,7 +1343,7 @@
         .google-rating-value {
             font-size: 48px;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .google-rating-details {
@@ -1416,12 +1373,12 @@
         }
 
         .faq-item {
-            background: var(--surface);
+            background: white;
             border-radius: var(--radius);
             margin-bottom: 16px;
             box-shadow: var(--shadow-sm);
             overflow: hidden;
-            border: 1px solid var(--border-glow);
+            border: 1px solid var(--border);
         }
 
         .faq-question {
@@ -1433,8 +1390,8 @@
             gap: 16px;
             font-size: 17px;
             font-weight: 600;
-            color: var(--text-primary);
-            background: transparent;
+            color: var(--secondary);
+            background: white;
             text-align: left;
             cursor: pointer;
             transition: var(--transition);
@@ -1484,10 +1441,7 @@
         .contact-info h2 {
             font-size: 36px;
             font-weight: 800;
-            background: linear-gradient(135deg, #fff, var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--secondary);
             margin-bottom: 16px;
         }
 
@@ -1512,13 +1466,11 @@
             background: var(--surface);
             border-radius: var(--radius);
             transition: var(--transition);
-            border: 1px solid var(--border-glow);
         }
 
         .contact-method:hover {
             transform: translateX(8px);
             box-shadow: var(--shadow);
-            border-color: var(--primary);
         }
 
         .contact-method-icon {
@@ -1533,17 +1485,17 @@
         }
 
         .contact-method-icon.email {
-            background: rgba(192, 132, 252, 0.15);
+            background: rgba(37, 99, 235, 0.1);
             color: var(--primary);
         }
 
         .contact-method-icon.phone {
-            background: rgba(16, 185, 129, 0.15);
+            background: rgba(16, 185, 129, 0.1);
             color: var(--success);
         }
 
         .contact-method-icon.whatsapp {
-            background: rgba(37, 211, 102, 0.15);
+            background: rgba(37, 211, 102, 0.1);
             color: #25D366;
         }
 
@@ -1558,7 +1510,7 @@
         .contact-method-text span {
             font-size: 17px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--secondary);
         }
 
         .contact-method-text a:hover {
@@ -1566,17 +1518,16 @@
         }
 
         .contact-form-wrapper {
-            background: var(--surface);
+            background: white;
             border-radius: var(--radius-xl);
             padding: 40px;
             box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-glow);
         }
 
         .contact-form-wrapper h3 {
             font-size: 24px;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--secondary);
             margin-bottom: 8px;
         }
 
@@ -1604,12 +1555,11 @@
             width: 100%;
             padding: 14px 18px;
             font-size: 15px;
-            font-family: 'Inter';
-            border: 1px solid var(--border);
+            font-family: 'Poppins';
+            border: 2px solid var(--border);
             border-radius: var(--radius-sm);
             transition: var(--transition);
-            background: var(--background);
-            color: var(--text-primary);
+            background: var(--surface);
         }
 
         .form-group input:focus,
@@ -1617,7 +1567,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(192, 132, 252, 0.2);
+            background: white;
         }
 
         .form-group textarea {
@@ -1633,10 +1583,9 @@
 
         /* ==================== Footer ==================== */
         .footer {
-            background: var(--surface-dark);
+            background: var(--secondary);
             color: white;
             padding: 80px 0 0;
-            border-top: 1px solid var(--border-glow);
         }
 
         .footer-main {
@@ -1644,7 +1593,7 @@
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
             gap: 60px;
             padding-bottom: 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-brand .logo {
@@ -1652,15 +1601,12 @@
         }
 
         .footer-brand .logo-icon {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #0a0a0f;
+            background: white;
+            color: var(--primary);
         }
 
         .footer-brand .logo-name {
-            background: linear-gradient(135deg, #fff, var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: white;
         }
 
         .footer-brand .logo-tagline {
@@ -1683,7 +1629,7 @@
             width: 44px;
             height: 44px;
             border-radius: var(--radius-sm);
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1717,7 +1663,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--primary);
+            color: white;
             padding-left: 8px;
         }
 
@@ -1756,14 +1702,14 @@
         .newsletter-form button {
             padding: 14px 24px;
             background: var(--primary);
-            color: #0a0a0f;
+            color: white;
             border-radius: var(--radius-sm);
             font-weight: 600;
             transition: var(--transition);
         }
 
         .newsletter-form button:hover {
-            background: var(--accent);
+            background: var(--primary-light);
         }
 
         .footer-bottom {
@@ -1791,7 +1737,7 @@
         }
 
         .footer-legal a:hover {
-            color: var(--primary);
+            color: white;
         }
 
         /* ==================== Floating Elements ==================== */
@@ -1828,7 +1774,7 @@
             width: 48px;
             height: 48px;
             background: var(--primary);
-            color: #0a0a0f;
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1839,7 +1785,6 @@
             visibility: hidden;
             transition: var(--transition);
             z-index: 999;
-            cursor: pointer;
         }
 
         .scroll-top.visible {
@@ -1848,7 +1793,7 @@
         }
 
         .scroll-top:hover {
-            background: var(--accent);
+            background: var(--primary-dark);
             transform: translateY(-4px);
         }
 
@@ -1858,7 +1803,7 @@
             top: 80px;
             left: 0;
             right: 0;
-            background: var(--surface);
+            background: white;
             padding: 24px;
             box-shadow: var(--shadow-lg);
             transform: translateY(-100%);
@@ -1866,8 +1811,6 @@
             visibility: hidden;
             transition: var(--transition);
             z-index: 999;
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-glow);
         }
 
         .mobile-menu.active {
@@ -1881,7 +1824,6 @@
             padding: 16px;
             font-size: 16px;
             border-bottom: 1px solid var(--border);
-            color: var(--text-primary);
         }
 
         .mobile-menu .nav-cta {
@@ -2063,8 +2005,9 @@
                 <li><a href="#courses" class="nav-link">Courses</a></li>
                 <li><a href="#udemy" class="nav-link">Udemy Courses</a></li>
                 <!-- <li><a href="#testimonials" class="nav-link">Testimonials</a></li> -->
-				<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfb4_VWgdlo3ipcMQzZ0jctmhD0DY__OK_f1i0RC3r5aXNi2g/viewform?usp=header" class="nav-link">Register for Training</a></li>
+				<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfb4_VWgdlo3ipcMQzZ0jctmhD0DY__OK_f1i0RC3r5aXNi2g/viewform?usp=header" class="nav-link">Register</a></li>
         
+				
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             
@@ -2081,14 +2024,14 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
+     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#home" class="nav-link">Home</a>
         <a href="#batches" class="nav-link">Upcoming Batches</a>
         <a href="#courses" class="nav-link">Courses</a>
         <a href="#udemy" class="nav-link">Udemy Courses</a>
         <!-- <a href="#testimonials" class="nav-link">Testimonials</a> -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfb4_VWgdlo3ipcMQzZ0jctmhD0DY__OK_f1i0RC3r5aXNi2g/viewform?usp=header" class="nav-link">Register for Training</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfb4_VWgdlo3ipcMQzZ0jctmhD0DY__OK_f1i0RC3r5aXNi2g/viewform?usp=header" class="nav-link">Register</a>
         
         <a href="#contact" class="nav-link">Contact</a>
         <!--<div class="nav-cta">
@@ -2099,9 +2042,16 @@
         </div>-->
     </div>
 
+
+
+
     <!-- Hero Section -->
     <section class="hero" id="home">
+	
+
         <div class="container">
+		
+
             <div class="hero-content">
                 <div class="hero-badge">
                     <i class="fas fa-bolt"></i>
@@ -2123,9 +2073,24 @@
                     </a>
                     <a href="#batches" class="btn btn-secondary btn-lg">
                         <i class="fas fa-calendar-alt"></i>
-                        Join Upcoming Batch
+                        Next Batches
                     </a>
                 </div>
+                <!--
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">5000+</div>
+                        <div class="stat-label"><i class="fas fa-users" style="color:var(--primary); margin-right:8px"></i>Students Trained</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">50+</div>
+                        <div class="stat-label"><i class="fas fa-calendar-check" style="color:var(--primary); margin-right:8px"></i>Batches Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">4.9</div>
+                        <div class="stat-label"><i class="fas fa-star" style="color:var(--warning); margin-right:8px"></i>Average Rating</div>
+                    </div>
+                </div> -->
             </div>
             
             <div class="hero-visual">
@@ -2171,6 +2136,8 @@
             </div>
         </div>
     </section>
+
+    <!-- About Section removed -->
 
     <!-- Highlights Section -->
     <section class="highlights section" id="highlights">
@@ -2254,7 +2221,7 @@
             
             <div class="courses-grid">
                 
-                <!-- Course 1 -->
+				<!-- Course 1 -->
                 <div class="course-card">
                     <div class="course-header">
                         <div class="course-icon playwright">
@@ -2314,8 +2281,9 @@
                     </div>
                 </div>
 
-                <!-- Course 3 -->
-                <div class="course-card">
+				<!-- Course 3 -->
+                
+				<div class="course-card">
                     <div class="course-header">
                         <div class="course-icon ai">
                             <i class="fas fa-brain"></i>
@@ -2334,7 +2302,7 @@
                             </div>
                             <div class="course-meta-item">
                                 <i class="fas fa-signal"></i>
-                                <span>Intermediate to Advanced</span>
+                                <span>Beginner to Advanced</span>
                             </div>
                         </div>
                         <a href="aitesting.html" class="btn btn-primary">
@@ -2343,6 +2311,132 @@
                         </a>
                     </div>
                 </div>
+				
+				<!-- Course 4 -->
+                <!--
+				<div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon selenium">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="course-info">
+                            <h3>AI Powered Selenium with Java</h3>
+                            <span class="course-badge"><i class="fas fa-briefcase"></i> Most Popular</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p>Industry-standard Selenium WebDriver with Java. Build robust automation frameworks with AI-enhanced element detection and self-healing tests.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner to Advanced</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i>
+                            More Details
+                        </a>
+                    </div>
+                </div>
+				-->
+				<!-- Course 5 -->
+                <!-- <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon devops">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="course-info">
+                            <h3>AI Powered DevOps with AWS</h3>
+                            <span class="course-badge"><i class="fas fa-cloud"></i> Cloud Ready</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p>Learn CI/CD pipelines, Docker, Kubernetes, and AWS services. Integrate AI for intelligent deployments and monitoring.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>16 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate to Advanced</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i>
+                            More Details
+                        </a>
+                    </div>
+                </div>
+				-->
+				
+                <!-- Course 6 -->
+                <!--
+				<div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon api">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="course-info">
+                            <h3>API Testing with Postman & RestAssured</h3>
+                            <span class="course-badge"><i class="fas fa-check-circle"></i> Essential</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p>Complete API testing mastery with Postman for manual testing and RestAssured for automation. Includes GraphQL and performance testing.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner to Advanced</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i>
+                            More Details
+                        </a>
+                    </div>
+                </div>
+				-->
+				    
+                <!-- Course 7 -->
+				<!--
+				<div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon python">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="course-info">
+                            <h3>AI Powered Selenium with Python</h3>
+                            <span class="course-badge"><i class="fas fa-rocket"></i> Fast Track</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p>Combine Selenium's power with Python's ease. Perfect for quick learners who want to master automation with AI capabilities.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner to Advanced</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i>
+                            More Details
+                        </a>
+                    </div>
+                </div>
+			-->	
             </div>
         </div>
     </section>
@@ -2387,9 +2481,27 @@
                             </td>
                             <td class="batch-duration">12 Weeks</td>
                             <td class="batch-timing">6:30 AM - 8:00 AM IST</td>
+                            <!--<td class="batch-fee">₹19,999 <span style="color:var(--text-muted); font-weight:500">/ $300</span></td>-->
                             <td class="batch-trainer">Pavan</td>
                             <td><a href="playwright-typescript.html#pricing" class="btn btn-primary btn-sm">Enroll Now</a></td>
                         </tr>
+						
+						<tr>
+                            <td>
+                                <div class="batch-course">
+                                    <div class="batch-course-icon"><i class="fas fa-robot"></i></div>
+                                    <span class="batch-course-name">Generative AI & LLM Testing</span>
+                                </div>
+                            </td>
+                            <td><div class="batch-date"><i class="fas fa-calendar"></i> TBA</div></td>
+                            <td class="batch-duration">8 Weeks</td>
+                            <td class="batch-timing">Not yet finalized</td>
+                            <td class="batch-trainer">Pavan</td>
+                            <td><a href="aitesting.html#pricing" class="btn btn-primary btn-sm">Enroll Now</a></td>
+                        </tr> 
+						
+						
+						<!--
                         <tr>
                             <td>
                                 <div class="batch-course">
@@ -2399,29 +2511,184 @@
                             </td>
                             <td><div class="batch-date"><i class="fas fa-calendar"></i>TBA</div></td>
                             <td class="batch-duration">12 Weeks</td>
-                            <td class="batch-timing">8:00 PM - 9:30 PM IST</td>
-                            <td class="batch-trainer">Madan</td>
+                            <td class="batch-timing">-</td>
+                            <td class="batch-trainer">-</td>
                             <td><a href="playwright-python.html#pricing" class="btn btn-primary btn-sm">Enroll Now</a></td>
                         </tr>
-                        
-                        </tr>
+						-->
+						
+
+                        <!--
+						<tr>
                             <td>
                                 <div class="batch-course">
-                                    <div class="batch-course-icon"><i class="fas fa-robot"></i></div>
-                                    <span class="batch-course-name">Generative AI & LLM Testing</span>
+                                    <div class="batch-course-icon"><i class="fas fa-atom"></i></div>
+                                    <span class="batch-course-name">AI Powered Selenium with Java</span>
                                 </div>
                             </td>
-                            <td><div class="batch-date"><i class="fas fa-calendar"></i> TBA</div></td>
-                            <td class="batch-duration">8 Weeks</td>
-                            <td class="batch-timing">8:00 PM - 9:00 PM IST</td>
+                            <td><div class="batch-date"><i class="fas fa-calendar"></i>TBA</div></td>
+                            <td class="batch-duration">12 Weeks</td>
+                            <td class="batch-timing">7:00 AM - 8:30 AM IST</td>
                             <td class="batch-trainer">Pavan</td>
-                            <td><a href="aitesting.html#pricing" class="btn btn-primary btn-sm">Enroll Now</a></td>
+                            <td><a href="#contact" class="btn btn-primary btn-sm">More Details</a></td>
                         </tr>
+						-->
+						
+						<!--
+						 <tr>
+                            <td>
+                                <div class="batch-course">
+                                    <div class="batch-course-icon"><i class="fab fa-aws"></i></div>
+                                    <span class="batch-course-name">AI Powered DevOps with AWS</span>
+                                </div>
+                            </td>
+                            <td><div class="batch-date"><i class="fas fa-calendar"></i>TBA</div></td>
+                            <td class="batch-duration">14 Weeks</td>
+                            <td class="batch-timing">8:00 PM - 9:30 PM IST</td>
+                            <td class="batch-trainer">Madan</td>
+                            <td><a href="#contact" class="btn btn-primary btn-sm">More Details</a></td>
+                        </tr>
+						-->
+						
+						
+						<!--
+                        <tr>
+                            <td>
+                                <div class="batch-course">
+                                    <div class="batch-course-icon"><i class="fab fa-python"></i></div>
+                                    <span class="batch-course-name">AI Powered Selenium with Python</span>
+                                </div>
+                            </td>
+                            <td><div class="batch-date"><i class="fas fa-calendar"></i>TBA</div></td>
+                            <td class="batch-duration">12 Weeks</td>
+                            <td class="batch-timing">8:00 PM - 9:30 PM IST</td>
+                            <td class="batch-trainer">Pavan</td>
+                            <td><a href="#contact" class="btn btn-primary btn-sm">More Details</a></td>
+                        </tr> 
+
+                       
+                        <tr>
+                            <td>
+                                <div class="batch-course">
+                                    <div class="batch-course-icon"><i class="fas fa-exchange-alt"></i></div>
+                                    <span class="batch-course-name">API Testing with Postman &amp; RestAssured</span>
+                                </div>
+                            </td>
+                            <td><div class="batch-date"><i class="fas fa-calendar"></i> Feb 1, 2026</div></td>
+                            <td class="batch-duration">6-8 Weeks</td>
+                            <td class="batch-timing">9:00 PM - 10:30 PM IST</td>
+                            <td class="batch-fee">₹8,999 <span style="color:var(--text-muted); font-weight:500">/ $109</span></td>
+                            <td class="batch-trainer">Pavan</td>
+                            <td><a href="#contact" class="btn btn-primary btn-sm">More Details</a></td>
+                        </tr>
+						-->
+                       
                     </tbody>
                 </table>
             </div>
+
+            <!-- Mobile Cards -->
+            <div class="batch-cards">
+                <div class="batch-card">
+                    <div class="batch-card-header">
+                        <div class="batch-course-icon"><i class="fas fa-theater-masks"></i></div>
+                        <div>
+                            <div class="batch-course-name">AI Powered Playwright with JS/TS</div>
+                            <span class="batch-status open"><i class="fas fa-circle"></i> Open</span>
+                        </div>
+                    </div>
+                    <div class="batch-card-info">
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Start Date</span>
+                            <span class="batch-card-value">May 8, 2026</span>
+                        </div>
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Duration</span>
+                            <span class="batch-card-value">12 Weeks</span>
+                        </div>
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Timings</span>
+                            <span class="batch-card-value">6:30 AM - 8:00 AM IST</span>
+                        </div>
+                    </div>
+                    <a href="playwright-typescript.html#pricing" class="btn btn-primary" style="width: 100%;">Enroll Now</a>
+                </div>
+
+                <!-- <div class="batch-card">
+                    <div class="batch-card-header">
+                        <div class="batch-course-icon"><i class="fas fa-atom"></i></div>
+                        <div>
+                            <div class="batch-course-name">Selenium with Java</div>
+                            <span class="batch-status filling"><i class="fas fa-circle"></i> Filling Fast</span>
+                        </div>
+                    </div>
+                    <div class="batch-card-info">
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Start Date</span>
+                            <span class="batch-card-value">Jan 20, 2026</span>
+                        </div>
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Duration</span>
+                            <span class="batch-card-value">10 Weeks</span>
+                        </div>
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Timings</span>
+                            <span class="batch-card-value">7:00 AM - 8:30 AM IST</span>
+                        </div>
+                    </div>
+                    <div class="batch-card-info" style="margin-top:12px;">
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Fee</span>
+                            <span class="batch-card-value">₹14,999 / $179</span>
+                        </div>
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Details</span>
+                            <span class="batch-card-value"><a href="#" class="details-link">View</a></span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%;">Enroll Now</a>
+                </div>
+
+                <div class="batch-card">
+                    <div class="batch-card-header">
+                        <div class="batch-course-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div>
+                            <div class="batch-course-name">API Testing</div>
+                            <span class="batch-status open"><i class="fas fa-circle"></i> Open</span>
+                        </div>
+                    </div>
+                    <div class="batch-card-info">
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Start Date</span>
+                            <span class="batch-card-value">Feb 1, 2026</span>
+                        </div>
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Duration</span>
+                            <span class="batch-card-value">6 Weeks</span>
+                        </div>
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Timings</span>
+                            <span class="batch-card-value">9:00 PM - 10:30 PM IST</span>
+                        </div>
+                    </div>
+                    <div class="batch-card-info" style="margin-top:12px;">
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Fee</span>
+                            <span class="batch-card-value">₹8,999 / $109</span>
+                        </div>
+                        <div class="batch-card-item">
+                            <span class="batch-card-label">Details</span>
+                            <span class="batch-card-value"><a href="#" class="details-link">View</a></span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%;">Enroll Now</a>
+                </div> 
+            </div>
+			-->
+			
         </div>
     </section>
+
 
     <!-- Udemy Section -->
     <section class="udemy section" id="udemy">
@@ -2438,6 +2705,7 @@
             </div>
             
             <div class="udemy-grid">
+                <!-- Converted course cards from udemycourses.html -->
                 <div class="udemy-card">
                     <div class="udemy-thumbnail">
                         <img loading="lazy" decoding="async" width="480" height="270" src="https://img-c.udemycdn.com/course/480x270/6623153_fc34_3.jpg" alt="Playwright TS">
@@ -2499,7 +2767,7 @@
                         <span class="badge best-seller">Best Seller</span>
                     </div>
                     <div class="udemy-content">
-                        <h3>🧪 Selenium with Java, Cucumber & Frameworks</h3>
+                        <h3>🧪 Selenium with Java, Cucumber &amp; Frameworks</h3>
                         <a href="https://www.udemy.com/course/learn-selenium-with-java-live-project" class="btn" target="_blank">View Course</a>
                     </div>
                 </div>
@@ -2521,7 +2789,7 @@
                         <span class="badge best-seller">Best Seller</span>
                     </div>
                     <div class="udemy-content">
-                        <h3>🧪 Selenium with Python & PyTest</h3>
+                        <h3>🧪 Selenium with Python &amp; PyTest</h3>
                         <a href="https://www.udemy.com/course/learn-selenium-with-python-d/" class="btn" target="_blank">View Course</a>
                     </div>
                 </div>
@@ -2532,7 +2800,7 @@
                         <span class="badge most-trending">Most Trending</span>
                     </div>
                     <div class="udemy-content">
-                        <h3>🌐 Web & API Automation using Cypress</h3>
+                        <h3>🌐 Web &amp; API Automation using Cypress</h3>
                         <a href="https://www.udemy.com/course/learn-cypress-with-typescript/" class="btn" target="_blank">View Course</a>
                     </div>
                 </div>
@@ -2587,7 +2855,7 @@
                         <span class="badge best-seller">Best Seller</span>
                     </div>
                     <div class="udemy-content">
-                        <h3>🐍 API Testing with Postman & Python</h3>
+                        <h3>🐍 API Testing with Postman &amp; Python</h3>
                         <a href="https://www.udemy.com/course/learn-api-testing-with-postman-and-python-requests-module/" class="btn" target="_blank">View Course</a>
                     </div>
                 </div>
@@ -2598,7 +2866,7 @@
                         <span class="badge best-seller">Best Seller</span>
                     </div>
                     <div class="udemy-content">
-                        <h3>📊 JMeter – Performance & API Testing</h3>
+                        <h3>📊 JMeter – Performance &amp; API Testing</h3>
                         <a href="https://www.udemy.com/course/learn-jmeter-m/" class="btn" target="_blank">View Course</a>
                     </div>
                 </div>
@@ -3009,6 +3277,8 @@
                     View Google Reviews
                 </a>
                 <div class="sk-ww-google-reviews" data-embed-id="248937"></div><script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer="defer"></script>
+
+                
             </div>
         </div>
     </section>
@@ -3214,6 +3484,37 @@
                             <span>pavanoltraining@gmail.com</span>
                         </div>
                     </a>
+                    
+                    <!--<div class="contact-method">
+                        <div class="contact-method-icon phone">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-method-text">
+                            <h4>Call Us</h4>
+                            <span>+91 8142402254</span>
+                        </div>
+                    </div>
+               `     -->
+                    
+                    <!--<a href="[wa.me](https://wa.me/918142402254)" target="_blank" class="contact-method">
+                        <div class="contact-method-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-method-text">
+                            <h4>WhatsApp</h4>
+                            <span>Quick Response</span>
+                        </div>
+                    </a>-->
+
+                    <!--   <a class="contact-method">
+                        <div class="contact-method-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-method-text">
+                            <h4>WhatsApp (9:00 PM-10:00 PM IST)</h4>
+                            <span>+91 8142402254</span>
+                        </div>
+                    </a> -->
                 </div>
             </div>
             
@@ -3244,6 +3545,10 @@
                                 <option value="">Select a course</option>
                                 <option value="playwright-js">Playwright with JavaScript</option>
                                 <option value="playwright-python">Playwright with Python</option>
+                                <!--<option value="selenium-java">Selenium with Java</option>
+                                <option value="selenium-python">Selenium with Python</option>
+                                <option value="api-testing">API Testing</option>
+                                <option value="devops">DevOps with AWS</option>-->
                                 <option value="ai-testing">AI Testing</option>
                             </select>
                         </div>
@@ -3289,6 +3594,7 @@
                             <i class="fas fa-graduation-cap"></i>
                         </a>
                         <a href="https://www.pavantestingtools.com/" target="_blank" aria-label="Blog">
+                            <!--<i class="fab fa-instagram"></i>-->
                             <i class="fas fa-blog"></i>
                         </a>
                     </div>
@@ -3298,6 +3604,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
+                        <!-- About section removed per request -->
                         <li><a href="#courses">Courses</a></li>
                         <li><a href="#batches">Upcoming Batches</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
@@ -3310,16 +3617,22 @@
                     <ul>
                         <li><a href="playwright-typescript.html">Playwright JS/TS</a></li>
                         <li><a href="playwright-python.html">Playwright Python</a></li>
-                        <li><a href="aitesting.html">AI Testing</a></li>
+                        <li><a href="aitesting.html">Gen AI & LLM Testing</a></li>
+						<!--<li><a href="#courses">Selenium Java</a></li>
+                        <li><a href="#courses">DevOps AWS</a></li>-->
                         <li><a href="#udemy">Udemy Courses</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-links">
+               <div class="footer-links">
                     <h4>Subscribe</h4>
+                    
                     <script src="https://apis.google.com/js/platform.js"></script>
                     <div class="g-ytsubscribe" data-channel="pavanoltraining" data-count="default" data-layout="full"></div>
                 </div>
+
+
+               
             </div>
             
             <div class="footer-bottom">
@@ -3334,11 +3647,12 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <!-- <div class="whatsapp-float">
-        <a href="https://wa.me/8142402254" target="_blank" aria-label="Chat on WhatsApp">
+    <!--<div class="whatsapp-float">
+        <a href="[wa.me](https://wa.me/8142402254)" target="_blank" aria-label="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-    </div> -->
+    </div>
+	-->
 
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
