@@ -1985,6 +1985,149 @@
                 flex-direction: column;
             }
         }
+
+        /* Popup Modal Styles */
+        .ad-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .ad-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-modal-content {
+            position: relative;
+            background-color: #fff;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            animation: slideDown 0.3s ease;
+            overflow: hidden;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .ad-modal-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .ad-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .ad-modal-close:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .ad-modal-buttons {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ad-enroll-btn {
+            background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .ad-enroll-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 117, 252, 0.3);
+        }
+
+        .ad-close-later-btn {
+            background-color: #e2e8f0;
+            color: #475569;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+        }
+
+        .ad-close-later-btn:hover {
+            background-color: #cbd5e1;
+        }
+
+        @media (max-width: 600px) {
+            .ad-modal-content {
+                max-width: 90%;
+            }
+
+            .ad-modal-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .ad-enroll-btn,
+            .ad-close-later-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2047,14 +2190,10 @@
 
 
 
-
     <!-- Hero Section -->
     <section class="hero" id="home">
+	    <div class="container">
 	
-
-        <div class="container">
-		
-
             <div class="hero-content">
                 <div class="hero-badge">
                     <i class="fas fa-bolt"></i>
@@ -2489,7 +2628,7 @@
                             <td><a href="playwright-typescript.html#pricing" class="btn btn-primary btn-sm">Enroll Now</a></td>
                         </tr>
 						
-						<tr>
+						<!-- <tr>
                             <td>
                                 <div class="batch-course">
                                     <div class="batch-course-icon"><i class="fas fa-robot"></i></div>
@@ -2501,7 +2640,7 @@
                             <td class="batch-timing">Not yet finalized</td>
                             <td class="batch-trainer">Pavan</td>
                             <td><a href="aitesting.html#pricing" class="btn btn-primary btn-sm">Enroll Now</a></td>
-                        </tr> 
+                        </tr> -->
 						
 						
 						<!--
@@ -3793,5 +3932,71 @@
             observer.observe(el);
         });
     </script>
-</body>
-</html>
+
+    <!-- Ad Popup Modal -->
+    <div class="ad-modal" id="adModal">
+        <div class="ad-modal-content">
+            <button class="ad-modal-close" id="adCloseBtn">&times;</button>
+            <img src="ad.png" alt="New Playwright Batch Announcement" class="ad-modal-image">
+            <div class="ad-modal-buttons">
+                <a href="playwright-typescript.html" class="ad-enroll-btn">Enroll Now</a>
+                <button class="ad-close-later-btn" id="adCloseLaterBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show popup on page load and when navigating
+        function showAdPopup() {
+            const adModal = document.getElementById('adModal');
+            if (adModal) {
+                adModal.classList.add('show');
+            }
+        }
+
+        function hideAdPopup() {
+            const adModal = document.getElementById('adModal');
+            if (adModal) {
+                adModal.classList.remove('show');
+            }
+        }
+
+        // Show popup when page loads
+        window.addEventListener('load', function() {
+            showAdPopup();
+        });
+
+        // Close button functionality
+        const adCloseBtn = document.getElementById('adCloseBtn');
+        const adCloseLaterBtn = document.getElementById('adCloseLaterBtn');
+        const adModal = document.getElementById('adModal');
+
+        if (adCloseBtn) {
+            adCloseBtn.addEventListener('click', hideAdPopup);
+        }
+
+        if (adCloseLaterBtn) {
+            adCloseLaterBtn.addEventListener('click', hideAdPopup);
+        }
+
+        // Close popup when clicking outside the modal content
+        if (adModal) {
+            adModal.addEventListener('click', function(event) {
+                if (event.target === adModal) {
+                    hideAdPopup();
+                }
+            });
+        }
+
+        // Show popup when navigating to other pages
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.setItem('showAdPopup', 'true');
+        });
+
+        // Check if we should show popup on return
+        if (sessionStorage.getItem('showAdPopup') === 'true') {
+            showAdPopup();
+            sessionStorage.removeItem('showAdPopup');
+        }
+    </script>
+
