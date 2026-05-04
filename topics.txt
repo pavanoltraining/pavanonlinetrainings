@@ -1,209 +1,89 @@
-Module 1: Introduction to Playwright
-•	Fundamentals of Automation Testing
-•	What is Playwright?
-•	Key Features & Benefits
-•	Playwright Tools & Ecosystem
-•	Playwright vs Selenium
-•	JavaScript vs TypeScript
-•	Why TypeScript for Automation?
-•	Playwright Architecture Overview
-Module 2: JavaScript Fundamentals
-✅ JavaScript Introduction
-•	History of JavaScript
-•	Role in Testing
-•	Development Setup
-✅ Data Types & Variables
-•	Primitive Data Types
-•	let, const, var
-•	Type Coercion
-✅ Operators & Expressions
-•	Arithmetic Operators
-•	Comparison Operators
-•	Logical Operators
-✅ Control Flow
-•	if / else
-•	switch
-•	Ternary Operator
-✅ Loops
-•	for Loop
-•	while Loop
-•	Loop Control Statements
-✅ Functions Basics
-•	Function Declaration
-•	Parameters
-•	Return Values
-✅ Arrow Functions
-•	Arrow Function Syntax
-•	this Binding
-•	Use Cases
-✅ Arrays
-•	Array Methods
-•	Iteration Techniques
-•	Spread Operator
-✅ Objects
-•	Object Literals
-•	Properties
-•	Destructuring
-✅ DOM Manipulation
-•	Selectors
-•	Events
-•	DOM Methods
-✅ Async JavaScript
-•	Callbacks
-•	Promises
-•	async/await
-✅ ES6+ Features
-•	Modules
-•	Classes
-•	Template Literals
-Module 3: TypeScript Fundamentals
-✅ TypeScript Introduction
-•	Why TypeScript
-•	Setup & Installation
-•	Compilation Process
-✅ Type Annotations
-•	Basic Types
-•	Type Inference
-•	any vs unknown
-✅ Interfaces
-•	Defining Interfaces
-•	Optional Properties
-•	Readonly Properties
-✅ Types vs Interfaces
-•	Type Aliases
-•	Union Types
-✅ Functions in TypeScript
-•	Typed Parameters
-•	Return Types
-•	Function Overloading
-✅ Generics
-•	Generic Functions
-•	Constraints
-✅ Enums & Literals
-•	String Enums
-•	Numeric Enums
-•	Literal Types
-✅ Classes in TypeScript
-•	Access Modifiers
-•	Abstract Classes
-•	implements Keyword
-✅ Modules & Namespaces
-•	Import / Export
-•	Module Resolution
-•	Namespaces
-✅ TypeScript with Playwright
-•	Type-safe Tests
-•	Custom Types
-•	Best Practices
-Module 4: Web Automation using Playwright
-✅ Getting Started
-•	Installing Playwright and Project Setup
-•	Writing First Automation Script
-•	Understanding async/await & Promises
-•	Running Tests in Headed/Headless Mode
-•	Viewing HTML Reports and UI Mode
-✅ Locators & Selectors
-•	Built-in Locators: getByText, getByRole, getByLabel
-•	CSS Selectors and XPath
-•	Handling Dynamic Elements and DOM Changes
-✅ UI Interactions
-•	Click, Type, Checkbox, Radio Actions
-•	Handling Dropdowns
-•	Working with Web Tables
-•	Automating Date Pickers
-✅ Advanced UI Handling
-•	Handling iFrames and Multiple Tabs
-•	Alerts and Dialogs
-•	Mouse and Keyboard Actions
-•	Scrolling Techniques
-•	File Uploads
-✅ Browser Handling
-•	Browser Contexts and Sessions
-•	Managing Cookies
-•	Handling Viewport and Proxy
-•	SSL Configurations
-✅ Special Topics
-•	Shadow DOM Handling
-•	Modern Web Component Automation
-Module 5: Advanced Playwright Features
-⚙️ Core Features
-•	Auto-waiting and Timeout Strategies
-•	Assertions (Hard vs Soft)
-•	Test Recording using Codegen
-•	Debugging Techniques
-📸 Reporting & Debugging
-•	Capturing Screenshots
-•	Video Recording
-•	Using Trace Viewer for Debugging
-🧪 Test Management
-•	Retries and Flaky Test Handling
-•	Test Grouping and Hooks
-•	Tags and Annotations
-🚀 Execution
-•	Parallel Test Execution
-•	Parameterization
-•	Data-driven Testing
-📊 Reporting
-•	HTML Reports
-•	Allure Report Integration
-🧱 Framework Concepts
-•	Page Object Model (POM)
-•	Running Tests via package.json Scripts
-👁️ Advanced Testing
-•	Visual Testing using Snapshot Comparison
-•	Accessibility Testing (WCAG Standards, Axe Tool)
-Module 6: Automation Framework
-🏗️ Framework Setup
-•	Understanding Framework Architecture
-•	Project Folder Structure
-•	Configuration Management
-🧩 Implementation
-•	Page Object Classes
-•	Test Data Management (JSON, CSV)
-•	Utility/Helper Functions
-•	Data Providers
-•	Dynamic Data Generation using Faker
-⚙️ Execution & Reporting
-•	Tag-based Execution
-•	Parallel and Sequential Runs
-•	HTML and Allure Reports
-Module 7: CI/CD, Git, GitHub & Jenkins Integration
-🔗 Version Control & CI/CD
-•	Introduction to Git
-•	Working with Repositories in GitHub
-•	Setting up GitHub Actions
-•	Integrating Automation with Jenkins
-•	Building CI/CD Pipelines
-•	Automated Test Execution in Pipelines
-Module 8: API Testing using Playwright
-🌐 API Automation
-•	HTTP Methods: GET, POST, PUT, PATCH, DELETE
-•	Handling Request Body (Static & Dynamic)
-•	Path and Query Parameters
-•	API Chaining
-✅ Validations
-•	Status Code Validation
-•	Response Headers Validation
-•	JSON Response Validation
-🔐 Authentication
-•	Basic Authentication
-•	Token-based Authentication
-•	API Key Authentication
-Module 9: Playwright Integration with AI
-🧠 AI Fundamentals
-•	Introduction to Generative AI
-•	Understanding Large Language Models (LLMs)
-•	Prompt Engineering Basics
-•	Limitations and Risks of AI
-⚡ AI in Automation
-•	Model Context Protocol (MCP)
-•	Using GitHub Copilot for Test Automation
-🚀 Hands-on Implementation
-•	Setting up Playwright MCP in VS Code
-•	Generating UI & API Tests using AI
-•	Using Extensions for Productivity
-•	Vibe Coding Techniques for Faster Development
-🚀 Playwright In-built AI Agents
-•	Planner Agent – Plans Test Scenarios Automatically
-•	Generator Agent – Generates Test Scripts
-•	Healer Agent – Fixes Broken Tests Automatically
+Module 2:  JavaScript Fundamentals
+🔹 Basics & Syntax
+•	Variables: let, const, var 
+•	Data Types (primitive & reference) 
+•	Operators (arithmetic, comparison, logical) 
+•	Type coercion & truthy/falsy values 
+🔹 Control Flow
+•	if / else 
+•	switch 
+•	Ternary operator 
+🔹 Loops
+•	for 
+•	while 
+•	do...while 
+•	break, continue 
+🔹 Functions
+•	Function declaration & expression 
+•	Arrow functions 
+•	Default parameters 
+•	Rest parameters 
+•	Callback functions 
+🔹 Arrays
+•	Array creation & access 
+•	Important methods: 
+o	map() 
+o	filter() 
+o	reduce() 
+o	forEach() 
+o	find() 
+•	Iteration: for...of 
+🔹 Objects
+•	Object creation 
+•	Accessing properties 
+•	Nested objects 
+•	Destructuring 
+🔹 ES6+ Features 
+•	Template literals 
+•	Spread & rest operators 
+•	Destructuring (array & object) 
+•	Modules (import/export) 
+🔹 Asynchronous JavaScript 
+•	Callbacks 
+•	Promises 
+•	async/await 
+🔹 DOM Basics 
+•	Selecting elements 
+•	Events 
+
+Module 3. TypeScript Fundamentals
+🔹 Type System 
+•	Basic types: 
+o	string, number, boolean 
+o	any, unknown, void 
+•	Type inference 
+•	Union types (string | number) 
+•	Literal types 
+🔹 Interfaces
+•	Defining structure of objects 
+•	Optional properties 
+•	Readonly properties 
+🔹 Types & Aliases
+•	Type aliases 
+•	Combining types 
+•	Reusable types 
+🔹 Functions in TypeScript
+•	Function type annotations 
+•	Optional parameters 
+•	Default parameters with types 
+•	Return types 
+🔹 Arrays & Tuples
+•	Typed arrays (string[]) 
+•	Tuples 
+🔹 Enums
+•	Numeric enums 
+•	String enums 
+🔹 Classes 
+•	Class basics 
+•	Access modifiers: 
+o	public, private, protected 
+•	Constructors 
+•	Readonly properties 
+🔹 Advanced Object Handling
+•	Type assertions (as) 
+•	Index signatures 
+🔹 Generics (Moderate Level)
+•	Generic functions 
+•	Generic interfaces 
+🔹 Modules in TypeScript
+•	import/export with types 
