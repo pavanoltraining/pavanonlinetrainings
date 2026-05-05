@@ -847,6 +847,71 @@
             width: 100%;
         }
 
+        /* ==================== FAQ Section ==================== */
+        .faq {
+            background: var(--surface);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--secondary);
+            background: white;
+            text-align: left;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            padding: 0 24px 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
         /* ==================== Contact Section ==================== */
         .contact {
             background: var(--background);
@@ -1880,11 +1945,204 @@
                         </ul>
                     </div>
                 </div>
+				
+		</section>
+		
+		
+    <!-- FAQ Section -->
+    <section class="faq section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">
+                    <i class="fas fa-question-circle"></i>
+                    FAQ
+                </span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">
+                    Get answers to common questions about our training programs.
+                </p>
+            </div>
+            
+			<div class="faq-grid">
+			
+			    <div class="faq-item">
+                    <button class="faq-question">
+                        What is the difference between Live Training course and Udemy course?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+						
+						<b>Udemy Course: </b>Self-paced recorded videos, flexible timing, limited interaction, and suitable for independent learning at a low cost.
+						<br><b>Live Online Training:</b> Real-time instructor-led sessions, direct doubt clarification, structured learning, guided hands-on practice, mentorship, and career support.
+						If you’re looking for flexibility, Udemy works well. If you prefer guided learning with support and faster progress, live training is the better option.
+						</p>
+                    </div>
+                </div>
+			
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I attend a demo session before enrolling?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We do not conduct live demo sessions in order to maintain small, focused batches. However, you can explore sample class recordings to understand our teaching approach, session structure, and level of interaction. Additional videos are available on our YouTube channel (SDET-QA).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What if I miss a live session?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You don't have to worry about missing any class. You will receive daily session recordings via Google Drive. You also get up to 2 years of access to all recorded sessions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        I'm a complete beginner. Can I join this course?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, absolutely. This program is designed for beginners. Students are guided step-by-step, starting from the fundamentals and gradually moving to advanced topics.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you provide job placement assistance?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Currently, placement assistance is not offered.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Are there any discounts on the course fee?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The course fee is fixed and non-negotiable to ensure fairness and maintain training quality.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will I get access to session recordings?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Every session is recorded and shared on the same day for your reference and revision.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is this course suitable for freshers?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, this course is highly suitable for freshers who want to build a strong foundation and start a career in automation testing.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        I'm a Manual Tester. Will this course help me switch to automation?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, definitely. This training is specifically designed to help manual testers transition into automation roles with confidence.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will I be able to justify automation experience after this training?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>With proper understanding and consistent practice, you will gain the confidence and practical knowledge required to present yourself effectively in automation roles.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I crack automation interviews after completing this course?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. The course covers core concepts, real-time scenarios, and interview-focused topics, helping you prepare for automation interviews.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How is this training different from YouTube or recorded courses?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>This is a live, instructor-led training program with: Real-time explanations, Hands-on coding sessions, End-to-end framework development, Interactive doubt clarification. Unlike recorded courses, this program focuses on practical, industry-level learning.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will assignments be provided?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. You will receive daily assignments and practice tasks to reinforce your learning.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will this course improve my programming skills?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. The course is designed to help you improve logical thinking, coding skills, and best practices, enabling you to write clean and efficient code.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is the training theoretical or practical?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The training is completely hands-on. Concepts are explained through real-time examples and live coding sessions, ensuring practical understanding.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will I receive a certificate after completion?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, certification is not provided as part of this training.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What are the minimum system requirements?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>To attend the training, you will need: A desktop or laptop, Stable high-speed internet connection, A web browser, A microphone (recommended for interaction during live sessions).</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-   
+	
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1976,6 +2234,23 @@
                 link.classList.remove('active');
                 if (link.getAttribute('href').slice(1) === current) {
                     link.classList.add('active');
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                faqItems.forEach(faq => faq.classList.remove('active'));
+
+                if (!isActive) {
+                    item.classList.add('active');
                 }
             });
         });
