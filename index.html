@@ -26,7 +26,8 @@
             --accent: #6a11cb; /* purple accent */
             --success: #10b981;
             --warning: #f59e0b;
-            --background: #f6f8fb;
+			--closed: #10b981;
+			--background: #f6f8fb;
             --surface: #ffffff;
             --surface-dark: #f1f5f9;
             --text-primary: #0f172a;
@@ -1025,6 +1026,11 @@
         .batch-status.filling {
             background: rgba(245, 158, 11, 0.1);
             color: var(--warning);
+        }
+		
+		.batch-status.closed {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--closed);
         }
 
         /* Mobile Batch Cards */
@@ -2617,7 +2623,7 @@
                                 </div>
                             </td>
                             <td>
-                                <div class="batch-date"><i class="fas fa-calendar"></i> May 8, 2026</div>
+                                <div class="batch-date"><i class="fas fa-calendar"></i>TBA</div>
                             </td>
                             <td class="batch-duration">12 Weeks</td>
                             <td class="batch-timing">6:30 AM - 8:00 AM IST</td>
@@ -2734,7 +2740,8 @@
                         <div class="batch-course-icon"><i class="fas fa-theater-masks"></i></div>
                         <div>
                             <div class="batch-course-name">AI Powered Playwright with JS/TS</div>
-                            <span class="batch-status open"><i class="fas fa-circle"></i> Open</span>
+                            <!--<span class="batch-status open"><i class="fas fa-circle"></i>Open</span>-->
+							<span class="batch-status open"><i class="fas fa-circle"></i>Closed</span>
                         </div>
                     </div>
                     <div class="batch-card-info">
@@ -3948,16 +3955,16 @@
     </script>
 
     <!-- Ad Popup Modal -->
-    <div class="ad-modal" id="adModal">
+    <!--<div class="ad-modal" id="adModal">
         <div class="ad-modal-content">
             <button class="ad-modal-close" id="adCloseBtn">&times;</button>
             <img src="ad.png" alt="New Playwright Batch Announcement" class="ad-modal-image">
             <div class="ad-modal-buttons">
                 <a href="https://www.pavanonlinetrainings.com/playwright-typescript.html#pricing" class="ad-enroll-btn">Enroll Now</a>
-                <!--<button class="ad-close-later-btn" id="adCloseLaterBtn">Close</button>-->
             </div>
         </div>
     </div>
+	-->
 
     <script>
         // Show popup on page load and when navigating
