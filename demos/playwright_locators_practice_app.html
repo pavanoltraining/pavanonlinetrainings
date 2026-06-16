@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwright Locators Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select, button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            width: auto;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Playwright Locators</h1>
+        <p>You can practice using various Playwright locators on this page.</p>
+    </header>
+
+    <!-- getByRole() Section -->
+    <section id="role-locators">
+        <h2>1. <span class="highlight">getByRole()</span></h2>
+        <p>Locate elements by their explicit or implicit ARIA roles.</p>
+        
+        <div class="grid">
+            <div>
+                <h3>Buttons</h3>
+                <button role="button">Primary Action</button>
+                <button aria-pressed="false">Toggle Button</button>
+                <div role="button" tabindex="0" class="card">Div with button role</div>
+            </div>
+            
+            <div>
+                <h3>Form Elements</h3>
+                <label for="username">Username:</label>
+                <input type="text" id="username" role="textbox">
+                
+                <label>
+                    <input type="checkbox" role="checkbox"> Accept terms
+                </label>
+            </div>
+            
+            <div>
+                <h3>Navigation</h3>
+                <nav role="navigation">
+                    <ul>
+                        <li role="menuitem"><a href="#">Home</a></li>
+                        <li role="menuitem"><a href="#">Products</a></li>
+                        <li role="menuitem"><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div role="alert" class="card">
+                    This is an important alert message!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- getByText() Section -->
+    <section id="text-locators">
+        <h2>2. <span class="highlight">getByText()</span></h2>
+        <p>Locate elements by their text content.</p>
+        
+        <div class="card">
+            <p>This paragraph contains some <strong>important</strong> text that you might want to locate.</p>
+            <p>Another paragraph with <span style="color: red">colored text</span> for demonstration.</p>
+        </div>
+        
+        <ul>
+            <li>List item 1</li>
+            <li>List item 2 with <a href="#">link</a></li>
+            <li>Special: Unique text identifier</li>
+        </ul>
+        
+        <div class="card">
+            <button>Submit Form</button>
+            <p>Click the button above to submit your information.</p>
+        </div>
+    </section>
+
+    <!-- getByLabel() Section -->
+    <section id="label-locators">
+        <h2>3. <span class="highlight">getByLabel()</span></h2>
+        <p>Locate form controls by their associated label text.</p>
+        
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        
+        <div class="form-group">
+            <label>
+                Password:
+                <input type="password" name="password">
+            </label>
+        </div>
+        
+        <div class="form-group">
+            <label id="age-label">Your Age:</label>
+            <input type="number" aria-labelledby="age-label">
+        </div>
+        
+        <fieldset>
+            <legend>Shipping Method</legend>
+            <label><input type="radio" name="shipping" value="standard"> Standard</label>
+            <label><input type="radio" name="shipping" value="express"> Express</label>
+        </fieldset>
+    </section>
+
+    <!-- getByPlaceholder() Section -->
+    <section id="placeholder-locators">
+        <h2>4. <span class="highlight">getByPlaceholder()</span></h2>
+        <p>Locate input elements by their placeholder text.</p>
+        
+        <div class="form-group">
+            <input type="text" placeholder="Enter your full name" class="full-width">
+        </div>
+        
+        <div class="form-group">
+            <input type="tel" placeholder="Phone number (xxx-xxx-xxxx)">
+        </div>
+        
+        <div class="form-group">
+            <textarea placeholder="Type your message here..." rows="4"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <input type="search" placeholder="Search products...">
+            <button>Search</button>
+        </div>
+    </section>
+
+    <!-- getByAltText() Section -->
+    <section id="alttext-locators">
+        <h2>5. <span class="highlight">getByAltText()</span></h2>
+        <p>Locate elements (usually images) by their alt text.</p>
+        
+        <div class="image-container">
+            <img src="https://playwright.dev/img/playwright-logo.svg" alt="logo image">
+            <p>Playwright Logo</p>
+        </div>
+        
+        </div>
+    </section>
+
+    <!-- getByTitle() Section -->
+    <section id="title-locators">
+        <h2>6. <span class="highlight">getByTitle()</span></h2>
+        <p>Locate elements by their title attribute.</p>
+        
+        <div class="card">
+            <p>Hover over these elements to see their titles:</p>
+            <ul>
+                <li><a href="#" title="Home page link">Home</a></li>
+                <li><abbr title="HyperText Markup Language">HTML</abbr></li>
+                <li><span title="Tooltip text">This text has a tooltip</span></li>
+            </ul>
+        </div>
+        
+       
+        
+        <button title="Click to save your changes">Save</button>
+    </section>
+
+    <!-- getByTestId() Section -->
+    <section id="testid-locators">
+        <h2>7. <span class="highlight">getByTestId()</span></h2>
+        <p>Locate elements by their <code>data-testid</code> attribute (or other configured attribute).</p>
+        
+        <div class="card" data-testid="user-profile-card">
+            <h3 data-testid="profile-name">John Doe</h3>
+            <p data-testid="profile-email">john.doe@example.com</p>
+            <!--<h3 data-pw="profile-name">John Doe</h3>
+            <p data-pw="profile-email">john.doe@example.com</p> -->
+            <button data-testid="edit-profile-btn">Edit Profile</button>
+        </div>
+        
+        <div class="grid" data-testid="product-grid">
+            <div class="card" data-testid="product-card-1">
+                <h4 data-testid="product-name">Product A</h4>
+                <p data-testid="product-price">$19.99</p>
+            </div>
+            <div class="card" data-testid="product-card-2">
+                <h4 data-testid="product-name">Product B</h4>
+                <p data-testid="product-price">$29.99</p>
+            </div>
+            <div class="card" data-testid="product-card-3">
+                <h4 data-testid="product-name">Product C</h4>
+                <p data-testid="product-price">$39.99</p>
+            </div>
+        </div>
+        
+        <nav data-testid="main-navigation">
+            <ul>
+                <li data-testid="nav-home"><a href="#">Home</a></li>
+                <li data-testid="nav-products"><a href="#">Products</a></li>
+                <li data-testid="nav-contact"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <footer>
+        <p>This page demonstrates various Playwright locators for testing purposes.</p>
+        <button data-testid="footer-button" title="Back to top">↑ Top</button>
+    </footer>
+</body>
+</html>

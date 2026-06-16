@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Playwright Practice Hub | Modern Automation Sandbox</title>
+  <!-- Google Fonts & simple CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #f6f9fc 0%, #eef2f5 100%);
+      color: #1e2a3e;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    /* container and cards */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* header */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0b2b44, #1b4f72);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #2c3e50;
+      max-width: 700px;
+      margin: 0.75rem auto 0;
+      opacity: 0.85;
+    }
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+    .badge {
+      background: rgba(27, 79, 114, 0.1);
+      backdrop-filter: blur(2px);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1b4f72;
+      border: 1px solid rgba(27, 79, 114, 0.3);
+    }
+
+    /* layout grid */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* cards */
+    .card {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(0px);
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255,255,255,0.6);
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 42px -16px rgba(0,0,0,0.12);
+      background: white;
+    }
+    .card-header {
+      padding: 1.5rem 1.8rem 0.5rem 1.8rem;
+      border-bottom: 2px solid #e9edf2;
+    }
+    .card-header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card-header h2 span {
+      background: #eef2fa;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      font-family: monospace;
+      color: #1f6392;
+    }
+    .card-body {
+      padding: 1.5rem 1.8rem 1.8rem 1.8rem;
+    }
+
+    /* form groups */
+    .form-group {
+      margin-bottom: 1.4rem;
+    }
+    label {
+      font-weight: 500;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #1e4663;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      border: 1.5px solid #e2e8f0;
+      background: white;
+      font-family: 'Inter', monospace;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2c7da0;
+      box-shadow: 0 0 0 3px rgba(44,125,160,0.2);
+    }
+    button {
+      background: #1f6392;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    button:hover {
+      background: #0f4b6e;
+      transform: scale(0.97);
+    }
+    .secondary-btn {
+      background: #eef2fa;
+      color: #1f6392;
+      border: 1px solid #cbddea;
+    }
+    .secondary-btn:hover {
+      background: #e2e9f3;
+    }
+
+    /* list styling */
+    .task-list, .contact-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .task-list li, .contact-item {
+      background: #f8fafc;
+      margin: 0.6rem 0;
+      padding: 0.7rem 1rem;
+      border-radius: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #eef2f5;
+    }
+    .task-text {
+      font-weight: 500;
+    }
+    .delete-btn {
+      background: none;
+      color: #aa2e2e;
+      box-shadow: none;
+      font-size: 0.7rem;
+      padding: 0.3rem 0.8rem;
+      background: #fff0f0;
+    }
+    .delete-btn:hover {
+      background: #fcd7d7;
+      transform: none;
+    }
+    .status-badge {
+      font-size: 0.7rem;
+      background: #e2f0e8;
+      padding: 0.2rem 0.7rem;
+      border-radius: 50px;
+      color: #2a6b47;
+    }
+
+    /* image gallery */
+    .img-gallery {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.2rem 0;
+    }
+    .img-card {
+      text-align: center;
+      background: #f1f5f9;
+      border-radius: 1.2rem;
+      padding: 0.8rem;
+      width: 100px;
+    }
+    .img-card img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      border-radius: 16px;
+    }
+    .img-card p {
+      font-size: 0.7rem;
+      margin-top: 0.3rem;
+    }
+
+    /* test id container */
+    .testid-panel {
+      background: #fefce8;
+      border-left: 5px solid #eab308;
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+    }
+    hr {
+      margin: 1rem 0;
+      border-color: #eef2f5;
+    }
+    .feedback {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #2c7da0;
+      font-weight: 500;
+    }
+    .row-actions {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    [data-testid="special-submit"] {
+      background-color: #2b7a4b;
+    }
+    footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      color: #5f7d9c;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>🎭 Playwright Practice Hub</h1>
+    <p>Master <strong>getByRole, getByText, getByLabel, getByPlaceholder, getByAltText, getByTitle, getByTestId</strong><br>with this realistic modern automation sandbox</p>
+    <div class="badge-container">
+      <span class="badge">🎯 Role locators</span>
+      <span class="badge">📝 Text locators</span>
+      <span class="badge">🏷️ Label/Placeholder</span>
+      <span class="badge">🖼️ Alt & Title</span>
+      <span class="badge">🧪 data-testid</span>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <!-- CARD 1: getByRole + getByText + form labels / placeholders -->
+    <div class="card">
+      <div class="card-header">
+        <h2>🔐 Login Simulation <span>getByRole</span></h2>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="username">Username (accessible label)</label>
+          <input type="text" id="username" placeholder="e.g., automation_user" aria-label="Username input">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your secret">
+        </div>
+        <button id="loginBtn" aria-label="Sign in to dashboard">Sign In →</button>
+        <button id="resetFormBtn" class="secondary-btn" style="margin-left: 0.5rem;">Reset</button>
+        <div id="loginFeedback" class="feedback"></div>
+        <div class="testid-panel" style="margin-top: 1rem;">
+          <small>✨ <strong>getByRole('button', { name: 'Sign In →' })</strong>  &nbsp;|&nbsp; <strong>getByLabel('Username')</strong> <br> getByPlaceholder('e.g., automation_user')</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: getByAltText + getByTitle + getByText (dynamic greeting) -->
+    <div class="card">
+      <div class="card-header">
+        <h2>🖼️ Media & Title <span>alt / title / text</span></h2>
+      </div>
+      <div class="card-body">
+        <div class="img-gallery">
+          <div class="img-card">
+            <img src="https://picsum.photos/id/1/80/80" alt="Playwright automation logo" title="Click to inspect logo">
+            <p>Logo alt</p>
+          </div>
+          <div class="img-card">
+            <img src="https://picsum.photos/id/20/80/80" alt="Coffee and laptop" title="Developer setup">
+            <p>getByAltText</p>
+          </div>
+        </div>
+        <button id="showAltMessage" class="secondary-btn">Show Alt Text Info</button>
+        <div id="altMessage" class="feedback" style="margin-top: 0.8rem;"></div>
+        <hr>
+        <div title="Interactive tip panel" style="background: #f0f4f9; padding: 0.8rem; border-radius: 1rem;">
+          <span title="This text is inside a title attribute demo">⭐ Hover over this star to see title attribute</span>
+          <p><strong>getByTitle()</strong> example: <span id="dynamicTitleSpan" title="Current status: ready">Ready for automation</span></p>
+          <button id="changeTitleBtn" class="secondary-btn">Update Title</button>
+        </div>
+        <p id="welcomeMessage" style="margin-top: 0.8rem; font-weight: 500;">✨ Welcome text placeholder</p>
+      </div>
+    </div>
+
+    <!-- CARD 3: dynamic to-do list: testing getByTestId, getByRole listitem & filtering -->
+    <div class="card">
+      <div class="card-header">
+        <h2>✅ Task Manager <span>getByTestId & list</span></h2>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="taskInput">New task (test id friendly)</label>
+          <input type="text" id="taskInput" placeholder="e.g., Write Playwright tests" data-testid="task-input-field">
+        </div>
+        <button data-testid="add-task-button">Add Task</button>
+        <ul class="task-list" data-testid="task-list-container">
+          <li data-testid="task-item-1"><span class="task-text">Review locator strategies</span> <button class="delete-btn" data-testid="delete-task-1">Delete</button></li>
+          <li data-testid="task-item-2"><span class="task-text">Practice getByRole</span> <button class="delete-btn" data-testid="delete-task-2">Delete</button></li>
+        </ul>
+        <div class="testid-panel">
+          🔍 <code>page.getByTestId('add-task-button')</code> , <code>page.getByTestId('task-item-1')</code> <br>
+          <code>page.getByRole('listitem').filter({ hasText: 'Review' })</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4: getByLabel + radio group + select, and placeholder intensive -->
+    <div class="card">
+      <div class="card-header">
+        <h2>📋 Preferences <span>label / placeholder / text</span></h2>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="feedback">Your feedback (getByLabel)</label>
+          <textarea id="feedback" placeholder="Share your automation tips..."></textarea>
+        </div>
+        <div class="form-group">
+          <span id="prefLabel">Preferred framework</span>
+          <select id="frameworkSelect" aria-label="Preferred framework">
+            <option value="playwright">Playwright</option>
+            <option value="cypress">Cypress</option>
+            <option value="selenium">Selenium</option>
+          </select>
+        </div>
+        <fieldset style="border: none; margin: 0.5rem 0;">
+          <legend>Notification method</legend>
+          <label><input type="radio" name="notify" value="email" checked> Email</label>
+          <label><input type="radio" name="notify" value="slack"> Slack</label>
+        </fieldset>
+        <button id="submitPrefs" class="secondary-btn">Save preferences</button>
+        <div id="prefFeedback" class="feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second row: extra interactive panel for getByText & shadow DOM hint (realistic) -->
+  <div class="card" style="margin-bottom: 1.5rem;">
+    <div class="card-header">
+      <h2>📢 Announcements & getByText Filtering <span>dynamic content</span></h2>
+    </div>
+    <div class="card-body">
+      <div id="announcementContainer">
+        <p class="announcement">🌟 New: Playwright codegen now supports trace viewer!</p>
+        <p class="announcement">🔧 Tip: Use getByRole for buttons and links</p>
+        <p class="announcement special">💡 Special offer: Automation workshop next week</p>
+      </div>
+      <button id="filterSpecialBtn">Show only "Special" announcements</button>
+      <button id="resetAnnouncementsBtn">Reset all announcements</button>
+      <div class="testid-panel" style="margin-top: 1rem;">
+        📌 Practice: <code>page.getByText('Special offer', { exact: false })</code> or <code>page.getByRole('paragraph')</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extra: contact list to practice nested filtering -->
+  <div class="card">
+    <div class="card-header">
+      <h2>📇 Contact Directory <span>nth / filter by hasText</span></h2>
+    </div>
+    <div class="card-body">
+      <ul class="contact-list" id="contactList">
+        <li class="contact-item" data-contact="alice"><span>Alice Johnson - QA Lead</span> <button class="contact-action">Message</button></li>
+        <li class="contact-item" data-contact="bob"><span>Bob Smith - Developer</span> <button class="contact-action">Message</button></li>
+        <li class="contact-item" data-contact="carol"><span>Carol Diaz - Automation Expert</span> <button class="contact-action">Message</button></li>
+      </ul>
+      <button id="selectAutomationExpert">Select Automation Expert (by text)</button>
+      <div id="selectedContactMsg" class="feedback"></div>
+      <p class="testid-panel" style="margin-top: 0.8rem;">
+        💡 <code>page.getByRole('listitem').filter({ hasText: 'Automation Expert' })</code>
+      </p>
+    </div>
+  </div>
+  <footer>
+    🎯 Built for Playwright practice — each element supports getByRole, getByLabel, getByPlaceholder, getByAltText, getByTitle, getByTestId, getByText.
+  </footer>
+</div>
+
+<script>
+  (function() {
+    // 1) LOGIN SIMULATION (Role/placeholder/label)
+    const loginBtn = document.getElementById('loginBtn');
+    const resetForm = document.getElementById('resetFormBtn');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const feedbackDiv = document.getElementById('loginFeedback');
+    function updateLoginFeedback() {
+      const user = usernameInput.value.trim();
+      const pass = passwordInput.value.trim();
+      if(user && pass) {
+        feedbackDiv.innerHTML = `✅ Welcome back, ${user}! (getByText example)`;
+      } else if(user || pass) {
+        feedbackDiv.innerHTML = `⚠️ Please complete both fields.`;
+      } else {
+        feedbackDiv.innerHTML = `🔐 Enter credentials to simulate login.`;
+      }
+    }
+    loginBtn.addEventListener('click', () => {
+      const user = usernameInput.value.trim();
+      const pass = passwordInput.value.trim();
+      if(user && pass) {
+        feedbackDiv.innerHTML = `✅ Login successful! Hello ${user}. (Testing getByText)`;
+        // Also update dynamic welcome in card2
+        const welcomeMsg = document.getElementById('welcomeMessage');
+        if(welcomeMsg) welcomeMsg.innerHTML = `👋 Welcome, ${user}! You are authenticated.`;
+      } else {
+        feedbackDiv.innerHTML = `❌ Both username and password required. (placeholder/label demo)`;
+      }
+    });
+    resetForm.addEventListener('click', () => {
+      usernameInput.value = '';
+      passwordInput.value = '';
+      feedbackDiv.innerHTML = `Form reset. Use getByPlaceholder('e.g., automation_user') to fill.`;
+      document.getElementById('welcomeMessage').innerHTML = `✨ Welcome text placeholder`;
+    });
+    usernameInput.addEventListener('input', updateLoginFeedback);
+    passwordInput.addEventListener('input', updateLoginFeedback);
+
+    // 2) Alt & Title messages + change title dynamic
+    const showAltBtn = document.getElementById('showAltMessage');
+    const altMsgDiv = document.getElementById('altMessage');
+    showAltBtn.addEventListener('click', () => {
+      const images = document.querySelectorAll('img');
+      let altTexts = Array.from(images).map(img => img.getAttribute('alt') || 'no alt').join(', ');
+      altMsgDiv.innerHTML = `📸 Alt texts: ${altTexts}. You can use page.getByAltText('Playwright automation logo')`;
+    });
+    const changeTitleBtn = document.getElementById('changeTitleBtn');
+    const titleSpan = document.getElementById('dynamicTitleSpan');
+    changeTitleBtn.addEventListener('click', () => {
+      titleSpan.setAttribute('title', 'Updated title: Automated test ready!');
+      titleSpan.innerText = 'Title updated — use getByTitle("Updated title")';
+    });
+
+    // 3) Task manager (testId + dynamic list)
+    const addTaskBtn = document.querySelector('[data-testid="add-task-button"]');
+    const taskInput = document.querySelector('[data-testid="task-input-field"]');
+    const taskList = document.querySelector('[data-testid="task-list-container"]');
+    function addNewTask(taskText) {
+      if(!taskText.trim()) return;
+      const li = document.createElement('li');
+      const id = Date.now();
+      li.setAttribute('data-testid', `task-item-${id}`);
+      li.innerHTML = `<span class="task-text">${escapeHtml(taskText)}</span> <button class="delete-btn" data-testid="delete-task-${id}">Delete</button>`;
+      const delBtn = li.querySelector('.delete-btn');
+      delBtn.addEventListener('click', () => li.remove());
+      taskList.appendChild(li);
+    }
+    function escapeHtml(str) {
+      return str.replace(/[&<>]/g, function(m) {
+        if(m === '&') return '&amp;';
+        if(m === '<') return '&lt;';
+        if(m === '>') return '&gt;';
+        return m;
+      });
+    }
+    addTaskBtn.addEventListener('click', () => {
+      const newTask = taskInput.value.trim();
+      if(newTask) {
+        addNewTask(newTask);
+        taskInput.value = '';
+      }
+    });
+    // attach delete listeners on existing delete buttons
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        btn.closest('li')?.remove();
+      });
+    });
+
+    // 4) Preferences save (label / textarea)
+    const submitPrefs = document.getElementById('submitPrefs');
+    const prefFeedback = document.getElementById('prefFeedback');
+    submitPrefs.addEventListener('click', () => {
+      const feedbackText = document.getElementById('feedback').value;
+      const framework = document.getElementById('frameworkSelect').value;
+      const notify = document.querySelector('input[name="notify"]:checked').value;
+      prefFeedback.innerHTML = `✅ Saved! Feedback: "${feedbackText || '—'}" | Framework: ${framework} | Notify: ${notify}. (getByLabel for textarea, getByRole('radio'))`;
+    });
+
+    // 5) Announcements filtering (getByText practice)
+    const filterBtn = document.getElementById('filterSpecialBtn');
+    const resetAnnBtn = document.getElementById('resetAnnouncementsBtn');
+    const announcementContainer = document.getElementById('announcementContainer');
+    const originalAnnouncements = Array.from(announcementContainer.children).map(p => p.cloneNode(true));
+    filterBtn.addEventListener('click', () => {
+      const items = announcementContainer.querySelectorAll('.announcement');
+      items.forEach(item => {
+        const text = item.innerText;
+        if(text.includes('Special') || text.toLowerCase().includes('special')) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+    resetAnnBtn.addEventListener('click', () => {
+      while(announcementContainer.firstChild) announcementContainer.removeChild(announcementContainer.firstChild);
+      originalAnnouncements.forEach(clone => announcementContainer.appendChild(clone.cloneNode(true)));
+    });
+
+    // 6) Contact directory: select automation expert via getByText-like filter
+    const selectExpertBtn = document.getElementById('selectAutomationExpert');
+    const contactMsgDiv = document.getElementById('selectedContactMsg');
+    selectExpertBtn.addEventListener('click', () => {
+      const contacts = document.querySelectorAll('.contact-item');
+      let found = null;
+      for(let contact of contacts) {
+        if(contact.innerText.includes('Automation Expert')) {
+          found = contact;
+          break;
+        }
+      }
+      if(found) {
+        const nameSpan = found.querySelector('span')?.innerText || 'Carol Diaz';
+        contactMsgDiv.innerHTML = `🎯 Selected: ${nameSpan} — use page.getByRole('listitem').filter({ hasText: 'Automation Expert' })`;
+      } else {
+        contactMsgDiv.innerHTML = `No expert found.`;
+      }
+    });
+    // attach message actions for demonstration
+    document.querySelectorAll('.contact-action').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const contactItem = btn.closest('.contact-item');
+        const name = contactItem.querySelector('span')?.innerText.split('-')[0].trim();
+        alert(`📨 Messaging ${name} (automation practice: getByRole('button', { name: 'Message' }) )`);
+      });
+    });
+
+    // extra: demo getByText dynamic updates for login
+    // ensure all interactive elements are covered 
+    const initialGreeting = document.getElementById('welcomeMessage');
+    // for title attribute test
+    console.log('Playground ready — all locator strategies supported');
+  })();
+</script>
+</body>
+</html>
